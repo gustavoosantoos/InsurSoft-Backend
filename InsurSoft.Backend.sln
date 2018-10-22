@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend", "InsurSoft.Backend\InsurSoft.Backend.csproj", "{6359685E-C999-4D99-A8C2-35489E44F1DB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D0095920-C130-4968-8799-9CC0AC02649C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{17BD904E-13D7-439D-91B2-D1ECD728F811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D2DA3D4D-C6E9-4B27-94EF-7A4F1306A868}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Web", "0 - Web", "{C4480998-C586-4702-934B-4502AA4CB053}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Mobile", "1 - Mobile", "{5E6E2DAA-FFE9-42C8-9038-39D7C8C2161C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Shared", "2 - Shared", "{9703D889-BF1C-40BA-9598-4ECEFBEDA999}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.1 - Api", "0.1 - Api", "{19C820C0-C50C-44A6-9878-94CD79EB95D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Api", "src\InsurSoft.Backend.Web.Api\InsurSoft.Backend.Web.Api.csproj", "{8BD4F927-F487-4208-ADC4-7012E2D28FC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +25,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6359685E-C999-4D99-A8C2-35489E44F1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6359685E-C999-4D99-A8C2-35489E44F1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6359685E-C999-4D99-A8C2-35489E44F1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6359685E-C999-4D99-A8C2-35489E44F1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD4F927-F487-4208-ADC4-7012E2D28FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD4F927-F487-4208-ADC4-7012E2D28FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD4F927-F487-4208-ADC4-7012E2D28FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD4F927-F487-4208-ADC4-7012E2D28FC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4480998-C586-4702-934B-4502AA4CB053} = {D0095920-C130-4968-8799-9CC0AC02649C}
+		{5E6E2DAA-FFE9-42C8-9038-39D7C8C2161C} = {D0095920-C130-4968-8799-9CC0AC02649C}
+		{9703D889-BF1C-40BA-9598-4ECEFBEDA999} = {D0095920-C130-4968-8799-9CC0AC02649C}
+		{19C820C0-C50C-44A6-9878-94CD79EB95D4} = {C4480998-C586-4702-934B-4502AA4CB053}
+		{8BD4F927-F487-4208-ADC4-7012E2D28FC3} = {19C820C0-C50C-44A6-9878-94CD79EB95D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8572840-64EE-43C5-96C1-6D6E8C17C877}
