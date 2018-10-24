@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace InsurSoft.Backend.Web.Segurados.Domain.Types
+namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
 {
     public class NomeCompleto : ValueObject
     {
         public string Nome { get; private set; }
         public string Sobrenome { get; private set; }
 
-        private NomeCompleto(string nome, string sobrenome)
+        protected NomeCompleto(string nome, string sobrenome)
         {
             Nome = nome;
             Sobrenome = sobrenome;
