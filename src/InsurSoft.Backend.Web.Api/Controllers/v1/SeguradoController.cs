@@ -5,11 +5,11 @@ using InsurSoft.Backend.Shared.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace InsurSoft.Backend.Web.Api.Controllers
+namespace InsurSoft.Backend.Web.Api.Controllers.v1
 {
-    [Route("api/web/[controller]")]
+    [Route("api/web/v1/[controller]")]
     [ApiController]
-    public class SeguradoController : ControllerBase
+    public class SeguradoController : ApiController
     {
         private readonly ISeguradoAppService _seguradoService;
 
@@ -18,7 +18,18 @@ namespace InsurSoft.Backend.Web.Api.Controllers
             _seguradoService = seguradoAppService;
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetById(int id)
+        {
+            return Ok();
+        }
+
         [HttpPost]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public IActionResult Create(CriarSeguradoInput input)
         {
             var command = CriarSeguradoCommand.Create(input);
@@ -29,9 +40,9 @@ namespace InsurSoft.Backend.Web.Api.Controllers
             var result = _seguradoService.CriarSegurado(command.Value);
 
             if (result.IsFailure)
-                return StatusCode(HttpStatusCode.InternalServerError.ToInt(), result.Errors);
+                return InternalServerError(result.Errors);
 
-            return Created("", null);
+            return Created(nameof(GetById), null);
         }
     }
 }
