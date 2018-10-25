@@ -11,6 +11,9 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
     {
         private readonly ISeguradoRepository _seguradoRepository;
 
+        private const string MensagemComandoVazio = "O comando para criação de segurados não deve ser vazio.";
+        private const string MensagemFalhaAoCriar = "Falha ao salvar segurado.";
+
         public SeguradoAppService(ISeguradoRepository seguradoRepository)
         {
             _seguradoRepository = seguradoRepository;
@@ -21,7 +24,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             try
             {
                 if (command == null)
-                    return Result.Fail("O comando para criação de segurados não deve ser vazio.");
+                    return Result.Fail(MensagemComandoVazio);
                 
                 _seguradoRepository?.Salvar(new Segurado(command.Nome, command.DataNascimento));
 
@@ -29,7 +32,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             }
             catch (Exception ex)
             {
-                return Result.Fail("Falha ao salvar segurado.");
+                return Result.Fail(MensagemFalhaAoCriar);
             }
         }
     }

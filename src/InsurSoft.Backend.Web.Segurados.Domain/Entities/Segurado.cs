@@ -7,7 +7,7 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
 {
     public class Segurado
     {
-        public Guid Id { get; private set; }
+        public CodigoNumerico Id { get; private set; }
         public NomeCompleto Nome { get; private set; }
         public DataNascimento DataNascimento { get; private set; }
 
