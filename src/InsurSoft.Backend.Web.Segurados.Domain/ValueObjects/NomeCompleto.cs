@@ -1,7 +1,5 @@
-﻿using CSharpFunctionalExtensions;
-using System;
+﻿using InsurSoft.Backend.Shared.Funcional;
 using System.Collections.Generic;
-using System.Text;
 
 namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
 {
@@ -31,7 +29,7 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
             var result = Result.Combine(resultNome, resultSobrenome);
 
             if (result.IsFailure)
-                return Result.Fail<NomeCompleto>(result.Error);
+                return Result.Fail<NomeCompleto>(result.Errors);
 
             return Result.Ok(new NomeCompleto(nome.Value, sobrenome.Value));
         }

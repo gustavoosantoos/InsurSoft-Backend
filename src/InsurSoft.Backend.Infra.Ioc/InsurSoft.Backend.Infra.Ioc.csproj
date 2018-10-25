@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InsurSoft.Backend.Shared.Functional\InsurSoft.Backend.Shared.Functional.csproj" />
+    <PackageReference Include="SimpleInjector" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

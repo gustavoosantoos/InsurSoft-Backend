@@ -17,15 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Shared", "2 - Shared", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.1 - Api", "0.1 - Api", "{19C820C0-C50C-44A6-9878-94CD79EB95D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Api", "src\InsurSoft.Backend.Web.Api\InsurSoft.Backend.Web.Api.csproj", "{8BD4F927-F487-4208-ADC4-7012E2D28FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Api", "src\InsurSoft.Backend.Web.Api\InsurSoft.Backend.Web.Api.csproj", "{8BD4F927-F487-4208-ADC4-7012E2D28FC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - Segurados", "0.2 - Segurados", "{354ED4DE-F500-459B-B1E5-DCAAA40EA17F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Segurados.Domain", "src\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj", "{9551C9D4-8003-4CEB-8208-3A9B4CBA8276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Domain", "src\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj", "{9551C9D4-8003-4CEB-8208-3A9B4CBA8276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Segurados.Application", "src\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj", "{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Application", "src\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj", "{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Infra.Ioc", "src\InsurSoft.Backend.Infra.Ioc\InsurSoft.Backend.Infra.Ioc.csproj", "{F6719661-C407-4B01-BB79-798F9E7599B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared.Functional", "src\InsurSoft.Backend.Shared.Functional\InsurSoft.Backend.Shared.Functional.csproj", "{66D65D93-8023-4D6B-9685-237925483133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6719661-C407-4B01-BB79-798F9E7599B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6719661-C407-4B01-BB79-798F9E7599B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6719661-C407-4B01-BB79-798F9E7599B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6719661-C407-4B01-BB79-798F9E7599B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D65D93-8023-4D6B-9685-237925483133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D65D93-8023-4D6B-9685-237925483133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D65D93-8023-4D6B-9685-237925483133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D65D93-8023-4D6B-9685-237925483133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +71,8 @@ Global
 		{3377127B-0A5E-4C23-9EC5-C21D09C5B1E7} = {D0095920-C130-4968-8799-9CC0AC02649C}
 		{9551C9D4-8003-4CEB-8208-3A9B4CBA8276} = {354ED4DE-F500-459B-B1E5-DCAAA40EA17F}
 		{25DCC94A-9CD4-4DB0-ABA0-8E2518B22E1C} = {354ED4DE-F500-459B-B1E5-DCAAA40EA17F}
+		{F6719661-C407-4B01-BB79-798F9E7599B4} = {3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}
+		{66D65D93-8023-4D6B-9685-237925483133} = {9703D889-BF1C-40BA-9598-4ECEFBEDA999}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8572840-64EE-43C5-96C1-6D6E8C17C877}

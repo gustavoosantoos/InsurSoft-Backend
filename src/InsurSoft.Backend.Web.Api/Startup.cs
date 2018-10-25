@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Application.Services;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +19,7 @@ namespace InsurSoft.Backend.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ISeguradoAppService, SeguradoAppService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
