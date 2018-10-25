@@ -19,7 +19,6 @@ namespace InsurSoft.Backend.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ISeguradoAppService, SeguradoAppService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

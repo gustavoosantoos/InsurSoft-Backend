@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Responses\" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
 </Project>

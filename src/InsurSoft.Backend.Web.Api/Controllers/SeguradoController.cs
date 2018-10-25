@@ -1,6 +1,7 @@
-﻿using InsurSoft.Backend.Web.Api.Models.Input.Segurados;
-using InsurSoft.Backend.Web.Segurados.Application.Commands;
+﻿using InsurSoft.Backend.Web.Segurados.Application.Commands;
 using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Input.Segurados;
+using InsurSoft.Backend.Shared.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -20,7 +21,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers
         [HttpPost]
         public IActionResult Create(CriarSeguradoInput input)
         {
-            var command = CriarSeguradoCommand.Create(input.Nome, input.Sobrenome, input.DataNascimento);
+            var command = CriarSeguradoCommand.Create(input);
 
             if (command.IsFailure)
                 return BadRequest(command.Errors);
@@ -28,7 +29,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers
             var result = _seguradoService.CriarSegurado(command.Value);
 
             if (result.IsFailure)
-                return StatusCode(500, result.Errors);
+                return StatusCode(HttpStatusCode.InternalServerError.ToInt(), result.Errors);
 
             return Created("", null);
         }

@@ -1,6 +1,6 @@
 ﻿using InsurSoft.Backend.Shared.Funcional;
 using InsurSoft.Backend.Web.Segurados.Domain.ValueObjects;
-using System;
+using InsurSoft.Backend.Web.Segurados.Input.Segurados;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.Commands
 {
@@ -15,10 +15,10 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Commands
             DataNascimento = data;
         }
 
-        public static Result<CriarSeguradoCommand> Create(string nome, string sobrenome, DateTime dataNascimento)
+        public static Result<CriarSeguradoCommand> Create(CriarSeguradoInput input)
         {
-            var nomeCompleto = NomeCompleto.Create(nome, sobrenome);
-            var data = DataNascimento.Create(dataNascimento);
+            var nomeCompleto = NomeCompleto.Create(input.Nome, input.Sobrenome);
+            var data = DataNascimento.Create(input.DataNascimento);
 
             var result = Result.Combine(nomeCompleto, data);
             
