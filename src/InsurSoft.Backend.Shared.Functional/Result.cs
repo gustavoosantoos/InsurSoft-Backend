@@ -134,7 +134,7 @@ namespace InsurSoft.Backend.Shared.Funcional
         }
 
         [DebuggerStepThrough]
-        public static Result<T> Fail<T>(string[] errors)
+        public static Result<T> Fail<T>(params string[] errors)
         {
             return new Result<T>(true, default(T), errors);
         }

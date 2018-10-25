@@ -32,15 +32,10 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(400)]
         public IActionResult Create(CriarSeguradoInput input)
         {
-            var command = CriarSeguradoCommand.Create(input);
-
-            if (command.IsFailure)
-                return BadRequest(command.Errors);
-
-            var result = _seguradoService.CriarSegurado(command.Value);
+            var result = _seguradoService.CriarSegurado(input);
 
             if (result.IsFailure)
-                return InternalServerError(result.Errors);
+                return BadRequest(result.Errors);
 
             return Created(nameof(GetById), null);
         }
