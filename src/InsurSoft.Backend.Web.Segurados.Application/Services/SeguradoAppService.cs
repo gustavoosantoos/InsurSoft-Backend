@@ -11,10 +11,10 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
     {
         private readonly ISeguradoRepository _seguradoRepository;
 
-        //public SeguradoAppService(ISeguradoRepository seguradoRepository)
-        //{
-        //    _seguradoRepository = seguradoRepository;
-        //}
+        public SeguradoAppService(ISeguradoRepository seguradoRepository)
+        {
+            _seguradoRepository = seguradoRepository;
+        }
 
         public Result CriarSegurado(CriarSeguradoCommand command)
         {
@@ -29,7 +29,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             }
             catch (Exception ex)
             {
-                return Result.Fail(ex.Message);
+                return Result.Fail("Falha ao salvar segurado.");
             }
         }
     }

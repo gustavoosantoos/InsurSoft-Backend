@@ -2,6 +2,7 @@
 using InsurSoft.Backend.Web.Segurados.Application.Commands;
 using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace InsurSoft.Backend.Web.Api.Controllers
 {
@@ -24,7 +25,10 @@ namespace InsurSoft.Backend.Web.Api.Controllers
             if (command.IsFailure)
                 return BadRequest(command.Errors);
 
-            _seguradoService.CriarSegurado(command.Value);
+            var result = _seguradoService.CriarSegurado(command.Value);
+
+            if (result.IsFailure)
+                return StatusCode(500, result.Errors);
 
             return Created("", null);
         }
