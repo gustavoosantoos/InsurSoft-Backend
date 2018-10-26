@@ -23,6 +23,16 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
                 .Map(codigo => new CodigoNumerico(codigo.Value));
         }
 
+        public static implicit operator int(CodigoNumerico codigo)
+        {
+            return codigo.Codigo;
+        }
+
+        public static implicit operator CodigoNumerico(int codigo)
+        {
+            return Create(codigo).Value;
+        }
+
         protected override IEnumerable<object> GetEqualityComponents()
         {
             yield return Codigo;

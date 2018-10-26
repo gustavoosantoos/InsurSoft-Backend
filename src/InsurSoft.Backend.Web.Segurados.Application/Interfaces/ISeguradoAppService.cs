@@ -10,6 +10,6 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Interfaces
     public interface ISeguradoAppService
     {
         Task CriarSegurado(CriarSeguradoInput input);
-        Task<Maybe<SeguradoOutput>> ObterPorCodigo(CodigoNumerico codigo);
+        Task<Maybe<SeguradoOutput>> ObterPorCodigo(int codigo);
     }
 }

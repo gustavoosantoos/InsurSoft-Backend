@@ -28,11 +28,18 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             _seguradoRepository = seguradoRepository;
         }
 
-        public async Task<Maybe<SeguradoOutput>> ObterPorCodigo(CodigoNumerico codigo)
+        public async Task<Maybe<SeguradoOutput>> ObterPorCodigo(int codigo)
         {
             try
             {
-                Segurado segurado = _seguradoRepository.Obter(codigo.Codigo);
+                var codigoNumerico = CodigoNumerico.Create(codigo);
+                if (codigoNumerico.IsFailure)
+                {
+                    await MediatorHandler.RaiseDomainEvents(this, codigoNumerico.Errors);
+                    return null;
+                }
+
+                Segurado segurado = _seguradoRepository.Obter(codigoNumerico.Value);
 
                 if (segurado == null)
                     return null;

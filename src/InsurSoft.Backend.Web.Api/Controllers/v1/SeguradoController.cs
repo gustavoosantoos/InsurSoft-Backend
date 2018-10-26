@@ -34,7 +34,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            return Response(await _seguradoService.ObterPorCodigo(id));
         }
 
         [HttpPost]

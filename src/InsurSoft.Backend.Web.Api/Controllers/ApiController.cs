@@ -1,4 +1,5 @@
-﻿using InsurSoft.Backend.Shared.Interfaces.Domain;
+﻿using InsurSoft.Backend.Shared.Funcional;
+using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Shared.Notifications.Application;
 using InsurSoft.Backend.Shared.Notifications.Domain;
 using InsurSoft.Backend.Shared.Web.Extensions;
@@ -47,6 +48,29 @@ namespace InsurSoft.Backend.Web.Api.Controllers
 
         protected new IActionResult Response(object result = null)
         {
+            var notificationResponse = NotificationResponseIfExists();
+
+            if (notificationResponse.HasValue)
+                return notificationResponse.Value;
+            
+            return Ok(ApiResponse.Success(result));
+        }
+        
+        public new IActionResult Response<T>(Maybe<T> result)
+        {
+            var notificationResponse = NotificationResponseIfExists();
+
+            if (notificationResponse.HasValue)
+                return notificationResponse.Value;
+
+            if (result.HasNoValue)
+                return Ok(ApiResponse.Success(null));
+
+            return Ok(ApiResponse.Success(result.Value));
+        }
+
+        protected Maybe<IActionResult> NotificationResponseIfExists()
+        {
             if (HasApplicationErrors())
             {
                 return InternalServerError(_applicationNotifications.GetNotifications().Select(n => n.Value));
@@ -57,7 +81,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers
                 return BadRequest(_domainNotifications.GetNotifications().Select(n => n.Value));
             }
 
-            return Ok(ApiResponse.Success(result));
+            return null;
         }
 
         protected void NotifyModelStateErrors()
