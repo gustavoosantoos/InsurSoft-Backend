@@ -1,4 +1,5 @@
 ﻿using InsurSoft.Backend.Infra.Ioc;
+using InsurSoft.Backend.Web.Api.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,10 @@ namespace InsurSoft.Backend.Web.Api
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.InitContainer();
+            app.InitContainer((container) =>
+            {
+                container.RegisterAutoMapperIoc();
+            });
 
             if (env.IsDevelopment())
             {

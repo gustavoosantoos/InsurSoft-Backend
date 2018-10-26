@@ -36,7 +36,7 @@ namespace InsurSoft.Backend.Shared.Funcional
         {
             return new Maybe<T>(obj);
         }
-
+        
         public static bool operator ==(Maybe<T> maybe, T value)
         {
             if (maybe.HasNoValue)

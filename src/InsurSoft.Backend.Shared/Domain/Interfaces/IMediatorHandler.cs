@@ -14,5 +14,11 @@ namespace InsurSoft.Backend.Shared.Interfaces.Domain
         Task RaiseDomainEvent(Type type, string value);
         Task RaiseAppEvent(Type type, string value);
         Task RaiseDomainEvents(Type type, string[] values);
+
+        Task RaiseAppEvent(object caller, string value);
+        Task RaiseDomainEvent(object caller, string value);
+
+        Task RaiseAppEvents(object caller, string[] values);
+        Task RaiseDomainEvents(object caller, string[] values);
     }
 }

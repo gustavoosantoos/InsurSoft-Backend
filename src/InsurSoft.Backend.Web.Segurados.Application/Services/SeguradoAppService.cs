@@ -37,14 +37,13 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
                 if (segurado == null)
                     return null;
 
-                Maybe<SeguradoOutput> output = Mapper.Map<SeguradoOutput>(segurado);
-
-                return output;
+                return Mapper.Map<SeguradoOutput>(segurado);
             }
             catch (Exception ex)
             {
                 Logger.LogInformation(ex, ex.Message);
-                await MediatorHandler.RaiseAppEvent(GetType(), MensagemFalhaAoObterPorCodigo);
+                await MediatorHandler.RaiseAppEvent(this, MensagemFalhaAoObterPorCodigo);
+
                 return null;
             }
         }
@@ -53,14 +52,14 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
         {
             if (input == null)
             {
-                await MediatorHandler.RaiseDomainEvent(GetType(), MensagemInputVazio);
+                await MediatorHandler.RaiseDomainEvent(this, MensagemInputVazio);
                 return;
             }
 
             var commandResult = CriarSeguradoCommand.Create(input);
             if (commandResult.IsFailure)
             {
-                await MediatorHandler.RaiseDomainEvents(GetType(), commandResult.Errors);
+                await MediatorHandler.RaiseDomainEvents(this, commandResult.Errors);
                 return;
             }
 

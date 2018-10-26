@@ -1,17 +1,14 @@
 ﻿using AutoMapper;
 using InsurSoft.Backend.Web.Segurados.Application.Mapping;
 using SimpleInjector;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace InsurSoft.Backend.Infra.Ioc.AutoMapper
+namespace InsurSoft.Backend.Web.Api.AutoMapper
 {
     public static class AutoMapperConfiguration
     {
         public static void RegisterAutoMapperIoc(this Container container)
         {
-            container.RegisterSingleton(() => BuildMapper());
+            container.RegisterSingleton(BuildMapper);
         }
 
         private static IMapper BuildMapper()

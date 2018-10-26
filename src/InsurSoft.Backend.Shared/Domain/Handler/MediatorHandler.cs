@@ -69,5 +69,37 @@ namespace InsurSoft.Backend.Shared.Domain.Handler
                 }
             });
         }
+
+        public Task RaiseAppEvent(object caller, string value)
+        {
+            return RaiseAppEvent(caller.GetType().ToString(), value);
+        }
+
+        public Task RaiseDomainEvent(object caller, string value)
+        {
+            return RaiseDomainEvent(caller.GetType().ToString(), value);
+        }
+
+        public Task RaiseAppEvents(object caller, string[] values)
+        {
+            return Task.Run(() =>
+            {
+                foreach (var value in values)
+                {
+                    RaiseAppEvent(caller.GetType().Name, value);
+                }
+            });
+        }
+
+        public Task RaiseDomainEvents(object caller, string[] values)
+        {
+            return Task.Run(() =>
+            {
+                foreach (var value in values)
+                {
+                    RaiseDomainEvent(caller.GetType().Name, value);
+                }
+            });
+        }
     }
 }
