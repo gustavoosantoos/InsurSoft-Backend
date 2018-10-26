@@ -73,12 +73,14 @@ namespace InsurSoft.Backend.Web.Api.Controllers
         {
             if (HasApplicationErrors())
             {
-                return InternalServerError(_applicationNotifications.GetNotifications().Select(n => n.Value));
+                return InternalServerError(ApiResponse.Error(
+                    _applicationNotifications.GetNotifications().Select(n => n.Value)));
             }
 
             if (HasDomainErrors())
             {
-                return BadRequest(_domainNotifications.GetNotifications().Select(n => n.Value));
+                return BadRequest(ApiResponse.Error(
+                    _domainNotifications.GetNotifications().Select(n => n.Value)));
             }
 
             return null;

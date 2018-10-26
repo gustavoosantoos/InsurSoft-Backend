@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InsurSoft.Backend.Infra.Shared\InsurSoft.Backend.Infra.Shared.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
+  </ItemGroup>
+</Project>

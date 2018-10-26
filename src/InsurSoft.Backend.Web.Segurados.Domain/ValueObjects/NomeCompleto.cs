@@ -19,7 +19,7 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
             var resultNome = nome
                 .ToResult("O nome não deve ser vazio")
                 .Ensure(n => n.Length >= 3, "O nome deve ter ao menos 3 caracteres")
-                .Ensure(n => n.Length <= 20, "O nome deve ter no máximo 20 caracteres");
+                .Ensure(n => n.Length <= 25, "O nome deve ter no máximo 20 caracteres");
 
             var resultSobrenome = sobrenome
                 .ToResult("O sobrenome não deve ser vazio")

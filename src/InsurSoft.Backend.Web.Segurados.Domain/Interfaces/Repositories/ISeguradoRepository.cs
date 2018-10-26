@@ -10,6 +10,6 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Interfaces.Repositories
         void Salvar(Segurado segurado);
         Segurado Obter(int id);
         IEnumerable<Segurado> ObterTodos();
-        void Remover(Guid id);
+        void Remover(Segurado segurado);
     }
 }

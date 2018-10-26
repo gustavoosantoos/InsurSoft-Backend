@@ -8,7 +8,7 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Ioc
     {
         public static void RegisterIocSeguradosRepositories(this Container container)
         {
-            container.Register<ISeguradoRepository, SeguradoNullRepository>(Lifestyle.Scoped);
+            container.Register<ISeguradoRepository, SeguradoRepository>(Lifestyle.Scoped);
         }
     }
 }

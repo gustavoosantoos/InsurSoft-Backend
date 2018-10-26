@@ -40,7 +40,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
                 }
 
                 Maybe<Segurado> segurado = _seguradoRepository.Obter(codigoNumerico.Value);
-                Maybe<SeguradoOutput> output = segurado.HasValue ? Mapper.Map<SeguradoOutput>(segurado) : null;
+                Maybe<SeguradoOutput> output = segurado.HasValue ? Mapper.Map<SeguradoOutput>(segurado.Value) : null;
 
                 return output;
             }

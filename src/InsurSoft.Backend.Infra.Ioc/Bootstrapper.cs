@@ -1,4 +1,5 @@
-﻿using InsurSoft.Backend.Infra.Ioc.Logger;
+﻿using InsurSoft.Backend.Infra.Ioc.Context;
+using InsurSoft.Backend.Infra.Ioc.Logger;
 using InsurSoft.Backend.Infra.Ioc.Mediator;
 using InsurSoft.Backend.Web.Segurados.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,7 @@ namespace InsurSoft.Backend.Infra.Ioc
 
             _container.RegisterMvcControllers(app);
 
+            _container.RegisterContextIoc();
             _container.RegisterLoggerIoc();
             _container.RegisterMediatorIoc();
             _container.RegisterSeguradosIoc();
