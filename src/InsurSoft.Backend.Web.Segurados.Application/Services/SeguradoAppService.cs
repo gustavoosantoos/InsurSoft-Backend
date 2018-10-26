@@ -39,12 +39,10 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
                     return null;
                 }
 
-                Segurado segurado = _seguradoRepository.Obter(codigoNumerico.Value);
+                Maybe<Segurado> segurado = _seguradoRepository.Obter(codigoNumerico.Value);
+                Maybe<SeguradoOutput> output = segurado.HasValue ? Mapper.Map<SeguradoOutput>(segurado) : null;
 
-                if (segurado == null)
-                    return null;
-
-                return Mapper.Map<SeguradoOutput>(segurado);
+                return output;
             }
             catch (Exception ex)
             {
@@ -63,16 +61,14 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
                 return;
             }
 
-            var commandResult = CriarSeguradoCommand.Create(input);
-            if (commandResult.IsFailure)
+            var command = CriarSeguradoCommand.Create(input);
+            if (command.IsFailure)
             {
-                await MediatorHandler.RaiseDomainEvents(this, commandResult.Errors);
+                await MediatorHandler.RaiseDomainEvents(this, command.Errors);
                 return;
             }
-
-            var command = commandResult.Value;
-
-            _seguradoRepository.Salvar(new Segurado(command.Nome, command.DataNascimento));
+            
+            _seguradoRepository.Salvar(new Segurado(command.Value.Nome, command.Value.DataNascimento));
         }
         
         private const string MensagemInputVazio = "O comando para criação de segurados não deve ser vazio.";
