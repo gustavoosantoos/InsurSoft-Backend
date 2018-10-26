@@ -11,9 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D2DA3D4D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Web", "0 - Web", "{C4480998-C586-4702-934B-4502AA4CB053}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Mobile", "1 - Mobile", "{5E6E2DAA-FFE9-42C8-9038-39D7C8C2161C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Shared", "2 - Shared", "{9703D889-BF1C-40BA-9598-4ECEFBEDA999}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Shared", "1 - Shared", "{9703D889-BF1C-40BA-9598-4ECEFBEDA999}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.1 - Api", "0.1 - Api", "{19C820C0-C50C-44A6-9878-94CD79EB95D4}"
 EndProject
@@ -21,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Api",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - Segurados", "0.2 - Segurados", "{354ED4DE-F500-459B-B1E5-DCAAA40EA17F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - Infrastructure", "{3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Domain", "src\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj", "{9551C9D4-8003-4CEB-8208-3A9B4CBA8276}"
 EndProject
@@ -33,9 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared.Fu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{85642F08-7903-417B-8ABE-BC8A6D0E5CCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Segurados.Infra.Ioc", "src\InsurSoft.Backend.Web.Segurados.Infra.Ioc\InsurSoft.Backend.Web.Segurados.Infra.Ioc.csproj", "{7C2CE0B5-0B1C-474D-95E3-88C56C3F4526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Infra.Ioc", "src\InsurSoft.Backend.Web.Segurados.Infra.Ioc\InsurSoft.Backend.Web.Segurados.Infra.Ioc.csproj", "{7C2CE0B5-0B1C-474D-95E3-88C56C3F4526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Shared.Web", "src\InsurSoft.Backend.Shared.Web\InsurSoft.Backend.Shared.Web.csproj", "{E75ECA77-366E-4B23-9CB1-D0C95012945D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared.Web", "src\InsurSoft.Backend.Shared.Web\InsurSoft.Backend.Shared.Web.csproj", "{E75ECA77-366E-4B23-9CB1-D0C95012945D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared", "src\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj", "{E0F414A8-011E-4DEA-893A-66347941B197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Segurados.Infra.Repository", "src\InsurSoft.Backend.Web.Segurados.Infra.Repository\InsurSoft.Backend.Web.Segurados.Infra.Repository.csproj", "{88D92402-E9C0-4259-90E0-B7AE123E496E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,13 +73,20 @@ Global
 		{E75ECA77-366E-4B23-9CB1-D0C95012945D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E75ECA77-366E-4B23-9CB1-D0C95012945D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E75ECA77-366E-4B23-9CB1-D0C95012945D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F414A8-011E-4DEA-893A-66347941B197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F414A8-011E-4DEA-893A-66347941B197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F414A8-011E-4DEA-893A-66347941B197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F414A8-011E-4DEA-893A-66347941B197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C4480998-C586-4702-934B-4502AA4CB053} = {D0095920-C130-4968-8799-9CC0AC02649C}
-		{5E6E2DAA-FFE9-42C8-9038-39D7C8C2161C} = {D0095920-C130-4968-8799-9CC0AC02649C}
 		{9703D889-BF1C-40BA-9598-4ECEFBEDA999} = {D0095920-C130-4968-8799-9CC0AC02649C}
 		{19C820C0-C50C-44A6-9878-94CD79EB95D4} = {C4480998-C586-4702-934B-4502AA4CB053}
 		{8BD4F927-F487-4208-ADC4-7012E2D28FC3} = {19C820C0-C50C-44A6-9878-94CD79EB95D4}
@@ -90,6 +99,8 @@ Global
 		{85642F08-7903-417B-8ABE-BC8A6D0E5CCE} = {354ED4DE-F500-459B-B1E5-DCAAA40EA17F}
 		{7C2CE0B5-0B1C-474D-95E3-88C56C3F4526} = {85642F08-7903-417B-8ABE-BC8A6D0E5CCE}
 		{E75ECA77-366E-4B23-9CB1-D0C95012945D} = {9703D889-BF1C-40BA-9598-4ECEFBEDA999}
+		{E0F414A8-011E-4DEA-893A-66347941B197} = {9703D889-BF1C-40BA-9598-4ECEFBEDA999}
+		{88D92402-E9C0-4259-90E0-B7AE123E496E} = {85642F08-7903-417B-8ABE-BC8A6D0E5CCE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8572840-64EE-43C5-96C1-6D6E8C17C877}

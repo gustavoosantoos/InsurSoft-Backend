@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using InsurSoft.Backend.Shared.Application;
 using InsurSoft.Backend.Shared.Funcional;
+using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Web.Segurados.Application.Commands;
 using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Application.Output.Segurados;
@@ -7,60 +9,67 @@ using InsurSoft.Backend.Web.Segurados.Domain.Entities;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces.Repositories;
 using InsurSoft.Backend.Web.Segurados.Domain.ValueObjects;
 using InsurSoft.Backend.Web.Segurados.Input.Segurados;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.Services
 {
-    public class SeguradoAppService : ISeguradoAppService
+    public class SeguradoAppService : AppService, ISeguradoAppService
     {
         private readonly ISeguradoRepository _seguradoRepository;
-        private readonly IMapper _mapper;
-
+        
         public SeguradoAppService(
             ISeguradoRepository seguradoRepository,
-            IMapper mapper)
+            IMapper mapper,
+            ILogger<SeguradoAppService> logger,
+            IMediatorHandler mediatorHandler) : base(logger, mediatorHandler, mapper)
         {
             _seguradoRepository = seguradoRepository;
-            _mapper = mapper;
         }
 
-        public Result<Maybe<SeguradoOutput>> ObterPorId(CodigoNumerico codigo)
+        public async Task<Maybe<SeguradoOutput>> ObterPorCodigo(CodigoNumerico codigo)
         {
             try
             {
                 Segurado segurado = _seguradoRepository.Obter(codigo.Codigo);
 
                 if (segurado == null)
-                    return Result.Fail<Maybe<SeguradoOutput>>();
+                    return null;
 
-                Maybe<SeguradoOutput> output = _mapper.Map<SeguradoOutput>(segurado);
+                Maybe<SeguradoOutput> output = Mapper.Map<SeguradoOutput>(segurado);
 
-                return Result.Ok(output);
+                return output;
             }
             catch (Exception ex)
             {
-                return Result.Fail<Maybe<SeguradoOutput>>(MensagemFalhaAoObterPorCodigo);
+                Logger.LogInformation(ex, ex.Message);
+                await MediatorHandler.RaiseAppEvent(GetType(), MensagemFalhaAoObterPorCodigo);
+                return null;
             }
         }
 
-        public Result CriarSegurado(CriarSeguradoInput input)
+        public async Task CriarSegurado(CriarSeguradoInput input)
         {
             if (input == null)
-                return Result.Fail(MensagemComandoVazio);
+            {
+                await MediatorHandler.RaiseDomainEvent(GetType(), MensagemInputVazio);
+                return;
+            }
 
             var commandResult = CriarSeguradoCommand.Create(input);
             if (commandResult.IsFailure)
-                return commandResult;
+            {
+                await MediatorHandler.RaiseDomainEvents(GetType(), commandResult.Errors);
+                return;
+            }
 
             var command = commandResult.Value;
 
-            _seguradoRepository?.Salvar(new Segurado(command.Nome, command.DataNascimento));
-
-            return Result.Ok();
+            _seguradoRepository.Salvar(new Segurado(command.Nome, command.DataNascimento));
         }
-
-
-        private const string MensagemComandoVazio = "O comando para criação de segurados não deve ser vazio.";
+        
+        private const string MensagemInputVazio = "O comando para criação de segurados não deve ser vazio.";
         private const string MensagemFalhaAoCriar = "Falha ao salvar segurado.";
         private const string MensagemFalhaAoObterPorCodigo = "Falha ao obter segurado pelo código.";
     }

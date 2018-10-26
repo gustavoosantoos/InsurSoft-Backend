@@ -1,5 +1,4 @@
-﻿using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
-using InsurSoft.Backend.Web.Segurados.Application.Services;
+﻿using InsurSoft.Backend.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +19,14 @@ namespace InsurSoft.Backend.Web.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
+            services.Init();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.InitContainer();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -32,6 +35,8 @@ namespace InsurSoft.Backend.Web.Api
             {
                 app.UseHsts();
             }
+
+            app.Verify();
 
             app.UseHttpsRedirection();
             app.UseMvc();

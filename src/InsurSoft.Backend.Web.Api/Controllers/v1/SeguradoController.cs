@@ -4,6 +4,11 @@ using InsurSoft.Backend.Web.Segurados.Input.Segurados;
 using InsurSoft.Backend.Shared.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using InsurSoft.Backend.Shared.Interfaces.Domain;
+using MediatR;
+using InsurSoft.Backend.Shared.Notifications.Domain;
+using InsurSoft.Backend.Shared.Notifications.Application;
+using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Api.Controllers.v1
 {
@@ -13,7 +18,12 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
     {
         private readonly ISeguradoAppService _seguradoService;
 
-        public SeguradoController(ISeguradoAppService seguradoAppService)
+        public SeguradoController(
+            ISeguradoAppService seguradoAppService,
+            IMediatorHandler mediatorHandler,
+            INotificationHandler<DomainNotification> domainNotifications,
+            INotificationHandler<ApplicationNotification> applicationNotifications)
+            : base(mediatorHandler, domainNotifications, applicationNotifications)
         {
             _seguradoService = seguradoAppService;
         }
@@ -22,22 +32,19 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [Route("{id:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             return Ok();
         }
 
         [HttpPost]
-        [ProducesResponseType(201)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public IActionResult Create(CriarSeguradoInput input)
+        public async Task<IActionResult> Create(CriarSeguradoInput input)
         {
-            var result = _seguradoService.CriarSegurado(input);
-
-            if (result.IsFailure)
-                return BadRequest(result.Errors);
-
-            return Created(nameof(GetById), null);
+            await _seguradoService.CriarSegurado(input);
+            
+            return Response();
         }
     }
 }
