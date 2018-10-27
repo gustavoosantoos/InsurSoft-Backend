@@ -11,6 +11,7 @@ using InsurSoft.Backend.Web.Segurados.Domain.ValueObjects;
 using InsurSoft.Backend.Web.Segurados.Input.Segurados;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.Services
@@ -26,6 +27,21 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             IMediatorHandler mediatorHandler) : base(logger, mediatorHandler, mapper)
         {
             _seguradoRepository = seguradoRepository;
+        }
+
+        public async Task<IEnumerable<SeguradoOutput>> ObterTodos()
+        {
+            try
+            {
+                return Mapper.Map<List<SeguradoOutput>>(_seguradoRepository.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, ex.Message);
+                await MediatorHandler.RaiseAppEvent(this, MensagemFalhaAoObterPorCodigo);
+
+                return new List<SeguradoOutput>();
+            }
         }
 
         public async Task<Maybe<SeguradoOutput>> ObterPorCodigo(int codigo)
@@ -53,26 +69,49 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
             }
         }
 
-        public async Task CriarSegurado(CriarSeguradoInput input)
+        public async Task Criar(CriarSeguradoInput input)
         {
-            if (input == null)
+            try
             {
-                await MediatorHandler.RaiseDomainEvent(this, MensagemInputVazio);
-                return;
-            }
+                if (input == null)
+                {
+                    await MediatorHandler.RaiseDomainEvent(this, MensagemInputVazio);
+                    return;
+                }
 
-            var command = CriarSeguradoCommand.Create(input);
-            if (command.IsFailure)
-            {
-                await MediatorHandler.RaiseDomainEvents(this, command.Errors);
-                return;
+                var command = CriarSeguradoCommand.Create(input);
+                if (command.IsFailure)
+                {
+                    await MediatorHandler.RaiseDomainEvents(this, command.Errors);
+                    return;
+                }
+
+                _seguradoRepository.Salvar(new Segurado(command.Value.Nome, command.Value.DataNascimento));
             }
-            
-            _seguradoRepository.Salvar(new Segurado(command.Value.Nome, command.Value.DataNascimento));
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, ex.Message);
+                await MediatorHandler.RaiseAppEvent(this, MensagemFalhaAoCriar);
+            }
+        }
+
+        public async Task Remover(int id)
+        {
+            try
+            {
+                _seguradoRepository.Remover(new Segurado(id, null, null));
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, ex.Message);
+                await MediatorHandler.RaiseAppEvent(this, MensagemFalhaAoRemover);
+            }
         }
         
         private const string MensagemInputVazio = "O comando para criação de segurados não deve ser vazio.";
         private const string MensagemFalhaAoCriar = "Falha ao salvar segurado.";
+        private const string MensagemFalhaAoRemover = "Falha ao remover segurado.";
+        private const string MensagemFalhaAoObterTodos = "Falha ao obter segurados.";
         private const string MensagemFalhaAoObterPorCodigo = "Falha ao obter segurado pelo código.";
     }
 }

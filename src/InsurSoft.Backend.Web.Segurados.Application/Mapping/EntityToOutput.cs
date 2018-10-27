@@ -9,9 +9,11 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Mapping
         public EntityToOutput()
         {
             CreateMap<Segurado, SeguradoOutput>()
+                .ForMember(output => output.Codigo, opts => opts.MapFrom(segurado => segurado.Codigo))
                 .ForMember(output => output.Nome, opts => opts.MapFrom(segurado => segurado.Nome.Nome))
                 .ForMember(output => output.Sobrenome, opts => opts.MapFrom(segurado => segurado.Nome.Sobrenome))
                 .ForMember(output => output.DataNascimento, opts => opts.MapFrom(segurado => segurado.DataNascimento.Data));
         }
     }
 }
+

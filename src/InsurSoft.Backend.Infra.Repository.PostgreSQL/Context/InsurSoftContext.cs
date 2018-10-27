@@ -1,11 +1,9 @@
 ﻿using InsurSoft.Backend.Infra.Repository.PostgreSQL.Mappings.Segurados;
 using InsurSoft.Backend.Infra.Shared.Config;
 using InsurSoft.Backend.Web.Segurados.Domain.Entities;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace InsurSoft.Backend.Infra.Repository.PostgreSQL.Context
 {
@@ -20,7 +18,12 @@ namespace InsurSoft.Backend.Infra.Repository.PostgreSQL.Context
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLoggerFactory(
+                new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) }));
+
             optionsBuilder.UseNpgsql(DatabaseConfig.ConnectionStringPostgreSQL);
+
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }

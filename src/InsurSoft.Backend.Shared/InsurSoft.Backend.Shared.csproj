@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <Folder Include="Domain\Commands\" />
+    <Folder Include="Domain\Enumerations\" />
+    <Folder Include="Domain\Types\" />
   </ItemGroup>
 
   <ItemGroup>

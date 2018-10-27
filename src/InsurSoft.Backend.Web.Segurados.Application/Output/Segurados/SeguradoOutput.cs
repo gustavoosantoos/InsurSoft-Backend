@@ -18,6 +18,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Output.Segurados
             DataNascimento = dataNascimento;
         }
 
+        public int Codigo { get; set; }
         public string Nome { get; private set; }
         public string Sobrenome { get; private set; }
         public DateTime DataNascimento { get; private set; }

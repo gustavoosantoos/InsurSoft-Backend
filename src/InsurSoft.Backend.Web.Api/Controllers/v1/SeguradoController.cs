@@ -29,9 +29,15 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         }
 
         [HttpGet]
+        [ProducesResponseType(200)]
+        public async Task<IActionResult> GetAll()
+        {
+            return Response(await _seguradoService.ObterTodos());
+        }
+
+        [HttpGet]
         [Route("{id:int}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
         public async Task<IActionResult> GetById(int id)
         {
             return Response(await _seguradoService.ObterPorCodigo(id));
@@ -42,8 +48,18 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(400)]
         public async Task<IActionResult> Create(CriarSeguradoInput input)
         {
-            await _seguradoService.CriarSegurado(input);
+            await _seguradoService.Criar(input);
             
+            return Response();
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        [ProducesResponseType(200)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _seguradoService.Remover(id);
+
             return Response();
         }
     }

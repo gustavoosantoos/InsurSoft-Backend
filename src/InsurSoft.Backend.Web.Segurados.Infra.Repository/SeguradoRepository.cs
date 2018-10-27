@@ -2,6 +2,8 @@
 using InsurSoft.Backend.Shared.Domain.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Entities;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,9 +20,9 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Repository
             _context = unitOfWork.Context;
         }
 
-        public Segurado Obter(int id)
+        public Segurado Obter(int codigo)
         {
-            return _context.Segurados.Find(id);
+            return _context.Segurados.FirstOrDefault(s => s.Codigo == codigo);
         }
 
         public IEnumerable<Segurado> ObterTodos()
@@ -30,7 +32,10 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Repository
 
         public void Remover(Segurado segurado)
         {
-            _context.Segurados.Remove(segurado);
+            segurado.MarcarComoApagado();
+
+            _context.Entry(segurado).State = EntityState.Modified;
+            _unityOfWork.Commit();
         }
 
         public void Salvar(Segurado segurado)
@@ -38,5 +43,6 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Repository
             _context.Segurados.Add(segurado);
             _unityOfWork.Commit();
         }
+      
     }
 }

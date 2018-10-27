@@ -11,24 +11,23 @@ namespace InsurSoft.Backend.Infra.Repository.PostgreSQL.Mappings.Segurados
             builder.ToTable("segurados");
 
             builder.HasKey(b => b.Codigo);
+            builder.Property(b => b.Codigo).HasColumnName("codigo");
 
-            builder.Property(b => b.Codigo)
-                .HasColumnName("codigo");
+            builder.OwnsOne(b => b.Nome, nome =>
+            {
+                nome.Property(n => n.Nome).HasColumnName("nome");
+                nome.Property(n => n.Sobrenome).HasColumnName("sobrenome");
+            });
 
-            builder.OwnsOne(
-                b => b.Nome, 
-                nome =>
-                {
-                    nome.Property(n => n.Nome).HasColumnName("nome");
-                    nome.Property(n => n.Sobrenome).HasColumnName("sobrenome");
-                });
+            builder.OwnsOne(b => b.DataNascimento, data =>
+            {
+                data.Property(d => d.Data).HasColumnName("data_nascimento");
+            });
 
-            builder.OwnsOne(
-                b => b.DataNascimento,
-                data =>
-                {
-                    data.Property(d => d.Data).HasColumnName("data_nascimento");
-                });
+            builder.Property(b => b.Ativo).HasColumnName("ativo");
+            builder.Property(b => b.Apagado).HasColumnName("apagado");
+
+            builder.HasQueryFilter(s => s.Ativo && !s.Apagado);
         }
     }
 }
