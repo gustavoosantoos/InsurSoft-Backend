@@ -27,7 +27,10 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Repository
 
         public IEnumerable<Segurado> ObterTodos()
         {
-            return _context.Segurados.AsEnumerable();
+            return _context
+                .Segurados
+                .OrderBy(s => s.Codigo)
+                .AsEnumerable();
         }
 
         public void Remover(Segurado segurado)

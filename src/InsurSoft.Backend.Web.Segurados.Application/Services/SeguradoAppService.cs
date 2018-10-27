@@ -99,7 +99,14 @@ namespace InsurSoft.Backend.Web.Segurados.Application.Services
         {
             try
             {
-                _seguradoRepository.Remover(new Segurado(id, null, null));
+                Maybe<Segurado> segurado = _seguradoRepository.Obter(id);
+                if (segurado.HasNoValue)
+                {
+                    await MediatorHandler.RaiseDomainEvent(this, MensagemFalhaAoObterPorCodigo);
+                    return;
+                }
+
+                _seguradoRepository.Remover(segurado.Value);
             }
             catch (Exception ex)
             {
