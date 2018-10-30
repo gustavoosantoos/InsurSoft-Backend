@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using InsurSoft.Backend.Web.Segurados.Application.Mapping;
 using SimpleInjector;
 
 namespace InsurSoft.Backend.Web.Api.AutoMapper
@@ -15,7 +14,7 @@ namespace InsurSoft.Backend.Web.Api.AutoMapper
         {
             var config = new MapperConfiguration(builder =>
             {
-                builder.AddProfile(new EntityToOutput());
+
             });
 
             var mapper = config.CreateMapper();

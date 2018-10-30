@@ -8,14 +8,14 @@ namespace InsurSoft.Backend.Shared.Web.Responses
     public class ApiErrorResponse : ApiBaseResponse
     {
         [JsonProperty(Order = 1)]
-        public object Errors { get; set; }
+        public IEnumerable<string> Errors { get; set; }
 
-        public ApiErrorResponse(bool success, object errors) : base(success)
+        public ApiErrorResponse(bool success, IEnumerable<string> errors) : base(success)
         {
             Errors = errors;
         }
 
-        public ApiErrorResponse(object errors) : this(false, errors)
+        public ApiErrorResponse(IEnumerable<string> errors) : this(false, errors)
         {
 
         }

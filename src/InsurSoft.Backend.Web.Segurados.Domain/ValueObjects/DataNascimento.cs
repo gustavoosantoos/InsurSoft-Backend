@@ -6,7 +6,7 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
 {
     public class DataNascimento : ValueObject
     {
-        private static readonly DateTime DataMinimaNascimento = new DateTime(1900, 01, 01);
+        public static readonly DateTime DataMinimaNascimento = new DateTime(1900, 01, 01);
 
         public DateTime Data { get; set; }
 

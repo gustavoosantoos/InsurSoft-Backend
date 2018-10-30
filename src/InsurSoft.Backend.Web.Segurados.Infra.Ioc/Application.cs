@@ -1,6 +1,11 @@
-﻿using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
-using InsurSoft.Backend.Web.Segurados.Application.Services;
+﻿using FluentValidation;
+using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
+using InsurSoft.Backend.Web.Segurados.Application.ListarSegurados;
+using InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado;
+using InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado;
+using MediatR;
 using SimpleInjector;
+using System.Collections.Generic;
 
 namespace InsurSoft.Backend.Web.Segurados.Infra.Ioc
 {
@@ -8,7 +13,12 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Ioc
     {
         public static void RegisterIocSeguradosApplication(this Container container)
         {
-            container.Register<ISeguradoAppService, SeguradoAppService>(Lifestyle.Scoped);
+            var assembly = typeof(AdicionarSeguradoCommandHandler).Assembly;
+            container.Register(typeof(IRequestHandler<,>), assembly);
+
+            container.Register<IValidator<ObterSeguradoDetalhadoQuery>, ObterSeguradoDetalhadoQueryValidator>(); 
+            container.Register<IValidator<AdicionarSeguradoCommand>, AdicionarSeguradoCommandValidator>();
+            container.Register<IValidator<RemoverSeguradoCommand>, RemoverSeguradoCommandValidator>();
         }
     }
 }

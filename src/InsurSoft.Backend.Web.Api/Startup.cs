@@ -1,10 +1,13 @@
-﻿using InsurSoft.Backend.Infra.Ioc;
+﻿using FluentValidation.AspNetCore;
+using InsurSoft.Backend.Infra.Ioc;
+using InsurSoft.Backend.Infra.Ioc.Validation;
 using InsurSoft.Backend.Web.Api.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace InsurSoft.Backend.Web.Api
 {
@@ -19,8 +22,17 @@ namespace InsurSoft.Backend.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddFluentValidation(fv => fv.ValidatorFactory = new ApplicationValidatorFactory(Bootstrapper.Container));
+
+            services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             services.Init();
         }
 
@@ -39,6 +51,12 @@ namespace InsurSoft.Backend.Web.Api
             {
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.Verify();
 

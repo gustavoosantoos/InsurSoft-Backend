@@ -1,6 +1,8 @@
-﻿using InsurSoft.Backend.Infra.Ioc.Context;
+﻿using FluentValidation;
+using InsurSoft.Backend.Infra.Ioc.Context;
 using InsurSoft.Backend.Infra.Ioc.Logger;
 using InsurSoft.Backend.Infra.Ioc.Mediator;
+using InsurSoft.Backend.Infra.Ioc.Validation;
 using InsurSoft.Backend.Web.Segurados.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -11,44 +13,45 @@ using SimpleInjector;
 using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
 using System;
+using System.Linq;
 
 namespace InsurSoft.Backend.Infra.Ioc
 {
     public static class Bootstrapper
     {
-        private static readonly Container _container = new Container();
+        public static readonly Container Container = new Container();
 
         public static void Init(this IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddSingleton<IControllerActivator>(new SimpleInjectorControllerActivator(_container));
-            services.AddSingleton<IViewComponentActivator>(new SimpleInjectorViewComponentActivator(_container));
+            services.AddSingleton<IControllerActivator>(new SimpleInjectorControllerActivator(Container));
+            services.AddSingleton<IViewComponentActivator>(new SimpleInjectorViewComponentActivator(Container));
 
-            services.EnableSimpleInjectorCrossWiring(_container);
-            services.UseSimpleInjectorAspNetRequestScoping(_container);
+            services.EnableSimpleInjectorCrossWiring(Container);
+            services.UseSimpleInjectorAspNetRequestScoping(Container);
         }
 
         public static void InitContainer(this IApplicationBuilder app, Action<Container> aditionalRegistrations = null)
         {
-            _container.Options.DefaultLifestyle = Lifestyle.Scoped;
-            _container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            Container.Options.DefaultLifestyle = Lifestyle.Scoped;
+            Container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            _container.RegisterMvcControllers(app);
+            Container.RegisterMvcControllers(app);
 
-            _container.RegisterContextIoc();
-            _container.RegisterLoggerIoc();
-            _container.RegisterMediatorIoc();
-            _container.RegisterSeguradosIoc();
+            Container.RegisterContextIoc();
+            Container.RegisterLoggerIoc();
+            Container.RegisterMediatorIoc();
+            Container.RegisterSeguradosIoc();
+            
+            aditionalRegistrations?.Invoke(Container);
 
-            aditionalRegistrations?.Invoke(_container);
-
-            _container.AutoCrossWireAspNetComponents(app);
+            Container.AutoCrossWireAspNetComponents(app);
         }
 
         public static void Verify(this IApplicationBuilder app)
         {
-            _container.Verify();
+            Container.Verify();
         }
     }
 }

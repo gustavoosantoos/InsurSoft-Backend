@@ -40,11 +40,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared.We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Shared", "src\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj", "{E0F414A8-011E-4DEA-893A-66347941B197}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Infra.Repository", "src\InsurSoft.Backend.Web.Segurados.Infra.Repository\InsurSoft.Backend.Web.Segurados.Infra.Repository.csproj", "{88D92402-E9C0-4259-90E0-B7AE123E496E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Infra.Repository.PostgreSQL", "src\InsurSoft.Backend.Infra.Repository.PostgreSQL\InsurSoft.Backend.Infra.Repository.PostgreSQL.csproj", "{B074A1F0-C93E-464C-BDD2-93CEBDA193CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Infra.Shared", "src\InsurSoft.Backend.Infra.Shared\InsurSoft.Backend.Infra.Shared.csproj", "{7115944D-C1A5-4F91-A1DE-25146CE16270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Infra.Shared", "src\InsurSoft.Backend.Infra.Shared\InsurSoft.Backend.Infra.Shared.csproj", "{7115944D-C1A5-4F91-A1DE-25146CE16270}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,10 +82,6 @@ Global
 		{E0F414A8-011E-4DEA-893A-66347941B197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0F414A8-011E-4DEA-893A-66347941B197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0F414A8-011E-4DEA-893A-66347941B197}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88D92402-E9C0-4259-90E0-B7AE123E496E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B074A1F0-C93E-464C-BDD2-93CEBDA193CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B074A1F0-C93E-464C-BDD2-93CEBDA193CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B074A1F0-C93E-464C-BDD2-93CEBDA193CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -115,7 +109,6 @@ Global
 		{7C2CE0B5-0B1C-474D-95E3-88C56C3F4526} = {85642F08-7903-417B-8ABE-BC8A6D0E5CCE}
 		{E75ECA77-366E-4B23-9CB1-D0C95012945D} = {9703D889-BF1C-40BA-9598-4ECEFBEDA999}
 		{E0F414A8-011E-4DEA-893A-66347941B197} = {9703D889-BF1C-40BA-9598-4ECEFBEDA999}
-		{88D92402-E9C0-4259-90E0-B7AE123E496E} = {85642F08-7903-417B-8ABE-BC8A6D0E5CCE}
 		{B074A1F0-C93E-464C-BDD2-93CEBDA193CD} = {3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}
 		{7115944D-C1A5-4F91-A1DE-25146CE16270} = {3377127B-0A5E-4C23-9EC5-C21D09C5B1E7}
 	EndGlobalSection

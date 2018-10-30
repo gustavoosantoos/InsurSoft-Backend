@@ -14,18 +14,23 @@ namespace InsurSoft.Backend.Web.Api.Controllers
 {
     public abstract class ApiController : ControllerBase
     {
+        protected IMediator Mediator { get; }
+
         readonly DomainNotificationHandler _domainNotifications;
         readonly ApplicationNotificationHandler _applicationNotifications;
-        readonly IMediatorHandler _mediator;
+        readonly IMediatorHandler _mediatorHandler;
 
         protected ApiController(
-            IMediatorHandler mediator,
+            IMediator mediator,
+            IMediatorHandler mediatorHandler,
             INotificationHandler<DomainNotification> domainNotifications,
             INotificationHandler<ApplicationNotification> applicationNotifications)
         {
             _domainNotifications = (DomainNotificationHandler)domainNotifications;
             _applicationNotifications = (ApplicationNotificationHandler)applicationNotifications;
-            _mediator = mediator;
+            _mediatorHandler = mediatorHandler;
+
+            Mediator = mediator;
         }
 
         protected IEnumerable<DomainNotification> DomainNotifications => _domainNotifications.GetNotifications();
@@ -64,7 +69,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers
                 return notificationResponse.Value;
 
             if (result.HasNoValue)
-                return Ok(ApiResponse.Success(null));
+                return Ok(ApiResponse.Success((object) null));
 
             return Ok(ApiResponse.Success(result.Value));
         }
@@ -98,12 +103,12 @@ namespace InsurSoft.Backend.Web.Api.Controllers
 
         protected void NotifyDomainError(string code, string message)
         {
-            _mediator.RaiseEvent(new DomainNotification(code, message));
+            _mediatorHandler.RaiseEvent(new DomainNotification(code, message));
         }
 
         protected void NotifyApplicationError(string code, string message)
         {
-            _mediator.RaiseEvent(new ApplicationNotification(code, message));
+            _mediatorHandler.RaiseEvent(new ApplicationNotification(code, message));
         }
 
         protected ObjectResult InternalServerError(object response)

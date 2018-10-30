@@ -1,13 +1,14 @@
-﻿using InsurSoft.Backend.Web.Segurados.Application.Commands;
-using InsurSoft.Backend.Web.Segurados.Application.Interfaces;
-using InsurSoft.Backend.Web.Segurados.Input.Segurados;
-using InsurSoft.Backend.Shared.Web.Extensions;
-using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
-using MediatR;
-using InsurSoft.Backend.Shared.Notifications.Domain;
+﻿using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Shared.Notifications.Application;
+using InsurSoft.Backend.Shared.Notifications.Domain;
+using InsurSoft.Backend.Shared.Web.Responses;
+using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
+using InsurSoft.Backend.Web.Segurados.Application.ListarSegurados;
+using InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado;
+using InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Api.Controllers.v1
@@ -16,51 +17,47 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
     [ApiController]
     public class SeguradoController : ApiController
     {
-        private readonly ISeguradoAppService _seguradoService;
-
         public SeguradoController(
-            ISeguradoAppService seguradoAppService,
+            IMediator mediator,
             IMediatorHandler mediatorHandler,
             INotificationHandler<DomainNotification> domainNotifications,
             INotificationHandler<ApplicationNotification> applicationNotifications)
-            : base(mediatorHandler, domainNotifications, applicationNotifications)
+            : base(mediator, mediatorHandler, domainNotifications, applicationNotifications)
         {
-            _seguradoService = seguradoAppService;
+
         }
 
         [HttpGet]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(ApiDataResponse<List<SeguradoPreviewViewModel>>), 200)]
         public async Task<IActionResult> GetAll()
         {
-            return Response(await _seguradoService.ObterTodos());
+            return Response(await Mediator.Send(new ListarSeguradosQuery()));
         }
 
         [HttpGet]
-        [Route("{id:int}")]
-        [ProducesResponseType(200)]
-        public async Task<IActionResult> GetById(int id)
+        [Route("{codigo:int}")]
+        [ProducesResponseType(typeof(ApiDataResponse<SeguradoDetalhadoViewModel>), 200)]
+        [ProducesResponseType(typeof(ApiErrorResponse), 400)]
+        public async Task<IActionResult> GetById([FromRoute] ObterSeguradoDetalhadoQuery query)
         {
-            return Response(await _seguradoService.ObterPorCodigo(id));
+            return Response(await Mediator.Send(query));
         }
 
         [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        public async Task<IActionResult> Create(CriarSeguradoInput input)
+        [ProducesResponseType(typeof(ApiDataResponse<object>), 200)]
+        [ProducesResponseType(typeof(ApiErrorResponse), 400)]
+        public async Task<IActionResult> Create([FromBody] AdicionarSeguradoCommand command)
         {
-            await _seguradoService.Criar(input);
-            
-            return Response();
+            return Response(await Mediator.Send(command));
         }
 
         [HttpDelete]
-        [Route("{id:int}")]
-        [ProducesResponseType(200)]
-        public async Task<IActionResult> Delete(int id)
+        [Route("{codigo:int}")]
+        [ProducesResponseType(typeof(ApiDataResponse<object>), 200)]
+        [ProducesResponseType(typeof(ApiErrorResponse), 400)]
+        public async Task<IActionResult> Delete([FromRoute] RemoverSeguradoCommand command)
         {
-            await _seguradoService.Remover(id);
-
-            return Response();
+            return Response(await Mediator.Send(command));
         }
     }
 }
