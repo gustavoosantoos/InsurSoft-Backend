@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Infra.Repositories\InsurSoft.Backend.Web.Segurados.Infra.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
+namespace InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados
 {
-    public class SeguradoPreviewViewModel
+    public class SeguradoPreview
     {
-        public SeguradoPreviewViewModel()
+        public SeguradoPreview()
         {
 
         }
 
-        public SeguradoPreviewViewModel(int codigo, string nome, string sobrenome, DateTime dataNascimento)
+        public SeguradoPreview(int codigo, string nome, string sobrenome, DateTime dataNascimento)
         {
             Codigo = codigo;
             Nome = nome;
@@ -26,9 +26,9 @@ namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
         public string Sobrenome { get; private set; }
         public DateTime DataNascimento { get; private set; }
 
-        public static SeguradoPreviewViewModel FromSegurado(Segurado segurado)
+        public static SeguradoPreview FromSegurado(Segurado segurado)
         {
-            return new SeguradoPreviewViewModel(
+            return new SeguradoPreview(
                 segurado.Codigo,
                 segurado.Nome.Nome,
                 segurado.Nome.Sobrenome,
@@ -36,9 +36,9 @@ namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
             );
         }
 
-        public static Expression<Func<Segurado, SeguradoPreviewViewModel>> SelectField()
+        public static Expression<Func<Segurado, SeguradoPreview>> SelectField()
         {
-            return (segurado) => new SeguradoPreviewViewModel()
+            return (segurado) => new SeguradoPreview()
             {
                 Codigo = segurado.Codigo,
                 Nome = segurado.Nome.Nome,

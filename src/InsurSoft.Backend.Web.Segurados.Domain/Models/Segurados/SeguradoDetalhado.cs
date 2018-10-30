@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado
+namespace InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados
 {
-    public class SeguradoDetalhadoViewModel 
+    public class SeguradoDetalhado
     {
-        public SeguradoDetalhadoViewModel(int codigo, string nome, string sobrenome, DateTime dataNascimento)
+        public SeguradoDetalhado(int codigo, string nome, string sobrenome, DateTime dataNascimento)
         {
             Codigo = codigo;
             Nome = nome;
@@ -20,9 +20,9 @@ namespace InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado
         public string Sobrenome { get; private set; }
         public DateTime DataNascimento { get; private set; }
 
-        public static SeguradoDetalhadoViewModel FromSegurado(Segurado segurado)
+        public static SeguradoDetalhado FromSegurado(Segurado segurado)
         {
-            return new SeguradoDetalhadoViewModel(
+            return new SeguradoDetalhado(
                 segurado.Codigo,
                 segurado.Nome.Nome,
                 segurado.Nome.Sobrenome,

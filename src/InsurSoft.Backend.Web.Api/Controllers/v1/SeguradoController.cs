@@ -6,6 +6,7 @@ using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
 using InsurSoft.Backend.Web.Segurados.Application.ListarSegurados;
 using InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado;
 using InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado;
+using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -28,15 +29,15 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ApiDataResponse<List<SeguradoPreviewViewModel>>), 200)]
+        [ProducesResponseType(typeof(ApiDataResponse<List<SeguradoPreview>>), 200)]
         public async Task<IActionResult> GetAll()
         {
             return Response(await Mediator.Send(new ListarSeguradosQuery()));
         }
 
         [HttpGet]
-        [Route("{codigo:int}")]
-        [ProducesResponseType(typeof(ApiDataResponse<SeguradoDetalhadoViewModel>), 200)]
+        [Route("{Codigo:int}")]
+        [ProducesResponseType(typeof(ApiDataResponse<SeguradoDetalhado>), 200)]
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> GetById([FromRoute] ObterSeguradoDetalhadoQuery query)
         {
@@ -52,7 +53,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         }
 
         [HttpDelete]
-        [Route("{codigo:int}")]
+        [Route("{Codigo:int}")]
         [ProducesResponseType(typeof(ApiDataResponse<object>), 200)]
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> Delete([FromRoute] RemoverSeguradoCommand command)

@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using InsurSoft.Backend.Infra.Repository.PostgreSQL.Context;
 using InsurSoft.Backend.Shared.Funcional;
 using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Web.Segurados.Domain.Entities;
+using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.ValueObjects;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,16 +12,16 @@ namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
 {
     public class AdicionarSeguradoCommandHandler : IRequestHandler<AdicionarSeguradoCommand>
     {
-        private readonly InsurSoftContext _context;
+        private readonly ISeguradoRepositoryAsync _seguradoRepository;
         private readonly IMapper _mapper;
         private readonly IMediatorHandler _mediatorHandler;
 
         public AdicionarSeguradoCommandHandler(
-            InsurSoftContext context,
+            ISeguradoRepositoryAsync seguradoRepository,
             IMapper mapper,
             IMediatorHandler mediatorHandler)
         {
-            _context = context;
+            _seguradoRepository = seguradoRepository;
             _mapper = mapper;
             _mediatorHandler = mediatorHandler;
         }
@@ -42,9 +39,8 @@ namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
             }
 
             var segurado = new Segurado(nomeCompleto.Value, dataNascimento.Value);
-
-            _context.Segurados.Add(segurado);
-            await _context.SaveChangesAsync(cancellationToken);
+            await _seguradoRepository.Adicionar(segurado, cancellationToken);
+            await _seguradoRepository.Salvar(cancellationToken);
 
             return Unit.Value;
         }

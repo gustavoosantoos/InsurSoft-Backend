@@ -9,6 +9,7 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Ioc
     {
         public static void RegisterSeguradosIoc(this Container container)
         {
+            container.RegisterIocSeguradosRepositories();
             container.RegisterIocSeguradosApplication();
         }
     }

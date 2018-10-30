@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InsurSoft.Backend.Infra.Repository.PostgreSQL\InsurSoft.Backend.Infra.Repository.PostgreSQL.csproj" />
-    <ProjectReference Include="..\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
   </ItemGroup>
 

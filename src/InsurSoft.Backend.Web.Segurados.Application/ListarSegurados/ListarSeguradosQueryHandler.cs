@@ -1,5 +1,7 @@
 ﻿using InsurSoft.Backend.Infra.Repository.PostgreSQL.Context;
 using InsurSoft.Backend.Shared.Interfaces.Domain;
+using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,25 +13,22 @@ using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
 {
-    public class ListarSeguradosQueryHandler : IRequestHandler<ListarSeguradosQuery, List<SeguradoPreviewViewModel>>
+    public class ListarSeguradosQueryHandler : IRequestHandler<ListarSeguradosQuery, IEnumerable<SeguradoPreview>>
     {
+        private readonly ISeguradoRepositoryAsync _seguradoRepository;
         private readonly IMediatorHandler _mediatorHandler;
-        private readonly InsurSoftContext _context;
 
         public ListarSeguradosQueryHandler(
-            IMediatorHandler mediatorHandler,
-            InsurSoftContext context)
+            ISeguradoRepositoryAsync seguradoRepository,
+            IMediatorHandler mediatorHandler)
         {
+            _seguradoRepository = seguradoRepository;
             _mediatorHandler = mediatorHandler;
-            _context = context;
         }
 
-        public async Task<List<SeguradoPreviewViewModel>> Handle(ListarSeguradosQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<SeguradoPreview>> Handle(ListarSeguradosQuery request, CancellationToken cancellationToken)
         {
-            return await _context
-                .Segurados
-                .Select(SeguradoPreviewViewModel.SelectField())
-                .ToListAsync();
+            return await _seguradoRepository.ObterPreviews(cancellationToken);
         }
     }
 }

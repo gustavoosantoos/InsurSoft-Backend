@@ -2,6 +2,7 @@
 using InsurSoft.Backend.Shared.Funcional;
 using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Web.Segurados.Domain.Entities;
+using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -13,30 +14,20 @@ namespace InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado
 {
     public class RemoverSeguradoCommandHandler : IRequestHandler<RemoverSeguradoCommand>
     {
-        private readonly InsurSoftContext _context;
+        private readonly ISeguradoRepositoryAsync _seguradoRepository;
         private readonly IMediatorHandler _mediatorHandler;
 
         public RemoverSeguradoCommandHandler(
-            InsurSoftContext context,
+            ISeguradoRepositoryAsync seguradoRepository,
             IMediatorHandler mediatorHandler)
         {
-            _context = context;
+            _seguradoRepository = seguradoRepository;
             _mediatorHandler = mediatorHandler;
         }
 
         public async Task<Unit> Handle(RemoverSeguradoCommand request, CancellationToken cancellationToken)
         {
-            Maybe<Segurado> segurado = _context.Segurados.Find(request.Codigo);
-            if (segurado.HasNoValue)
-            {
-                await _mediatorHandler.RaiseDomainEvent(this, "Segurado não encontrado com o código informado.");
-                return Unit.Value;
-            }
-
-            segurado.Value.MarcarComoApagado();
-
-            _context.Entry(segurado.Value).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            await _context.SaveChangesAsync();
+            await _seguradoRepository.Remover(request.Codigo, cancellationToken);
 
             return Unit.Value;
         }

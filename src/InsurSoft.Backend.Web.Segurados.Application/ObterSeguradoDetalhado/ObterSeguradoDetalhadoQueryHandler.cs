@@ -2,35 +2,37 @@
 using InsurSoft.Backend.Shared.Funcional;
 using InsurSoft.Backend.Shared.Interfaces.Domain;
 using InsurSoft.Backend.Web.Segurados.Domain.Entities;
+using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado
 {
-    public class ObterSeguradoDetalhadoQueryHandler : IRequestHandler<ObterSeguradoDetalhadoQuery, SeguradoDetalhadoViewModel>
+    public class ObterSeguradoDetalhadoQueryHandler : IRequestHandler<ObterSeguradoDetalhadoQuery, SeguradoDetalhado>
     {
-        private readonly InsurSoftContext _context;
+        private readonly ISeguradoRepositoryAsync _seguradoRepository;
         private readonly IMediatorHandler _mediatorHandler;
 
         public ObterSeguradoDetalhadoQueryHandler(
-            InsurSoftContext context,
+            ISeguradoRepositoryAsync seguradoRepository,
             IMediatorHandler mediatorHandler)
         {
-            _context = context;
+            _seguradoRepository = seguradoRepository;
             _mediatorHandler = mediatorHandler;
         }
 
-        public async Task<SeguradoDetalhadoViewModel> Handle(ObterSeguradoDetalhadoQuery request, CancellationToken cancellationToken)
+        public async Task<SeguradoDetalhado> Handle(ObterSeguradoDetalhadoQuery request, CancellationToken cancellationToken)
         {
-            Maybe<Segurado> segurado = _context.Segurados.Find(request.Codigo);
+            Maybe<SeguradoDetalhado> segurado = await _seguradoRepository.ObterDetalhado(request.Codigo, cancellationToken);
             if (segurado.HasNoValue)
             {
                 await _mediatorHandler.RaiseAppEvent(this, "Não foi encontrado segurado com o código informado.");
                 return null;
             }
 
-            return SeguradoDetalhadoViewModel.FromSegurado(segurado.Value);
+            return segurado.Value;
         }
     }
 }
