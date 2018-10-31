@@ -12,8 +12,7 @@ namespace InsurSoft.Backend.Web.Seguros.Domain.Entities
         public Segurado Segurado { get; private set; }
         public PeriodoVigencia Vigencia { get; private set; }
         public bool Apagado { get; private set; }
-
-
+        
         public bool EstaVigente() => DateTime.Today > Vigencia.Inicio && DateTime.Today < Vigencia.Final;
     }
 }
