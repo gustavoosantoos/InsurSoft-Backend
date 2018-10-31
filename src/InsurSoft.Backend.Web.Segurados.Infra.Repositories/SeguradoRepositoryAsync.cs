@@ -41,7 +41,7 @@ namespace InsurSoft.Backend.Web.Segurados.Infra.Repositories
 
         public async Task Remover(int codigo, CancellationToken cancellationToken = default) 
         {
-            var segurado = await _context.Segurados.FindAsync(codigo, cancellationToken);
+            var segurado = await _context.Segurados.FirstOrDefaultAsync(s => s.Codigo == codigo, cancellationToken);
             if (segurado == null)
                 return;
 

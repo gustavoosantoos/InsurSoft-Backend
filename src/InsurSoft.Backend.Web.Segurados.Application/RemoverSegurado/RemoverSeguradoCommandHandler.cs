@@ -28,6 +28,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado
         public async Task<Unit> Handle(RemoverSeguradoCommand request, CancellationToken cancellationToken)
         {
             await _seguradoRepository.Remover(request.Codigo, cancellationToken);
+            await _seguradoRepository.Salvar(cancellationToken);
 
             return Unit.Value;
         }

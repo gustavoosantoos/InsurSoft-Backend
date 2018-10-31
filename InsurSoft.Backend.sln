@@ -8,9 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{17BD904E-13D7-439D-91B2-D1ECD728F811}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D2DA3D4D-C6E9-4B27-94EF-7A4F1306A868}"
-	ProjectSection(SolutionItems) = preProject
-		src\InsurSoft.Backend.Infra.Repository.PostgreSQL\Class1.cs = src\InsurSoft.Backend.Infra.Repository.PostgreSQL\Class1.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Web", "0 - Web", "{C4480998-C586-4702-934B-4502AA4CB053}"
 EndProject
@@ -44,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Infra.Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Infra.Shared", "src\InsurSoft.Backend.Infra.Shared\InsurSoft.Backend.Infra.Shared.csproj", "{7115944D-C1A5-4F91-A1DE-25146CE16270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Segurados.Infra.Repositories", "src\InsurSoft.Backend.Web.Segurados.Infra.Repositories\InsurSoft.Backend.Web.Segurados.Infra.Repositories.csproj", "{69654183-EE26-4F35-AF03-6764A90C8934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Segurados.Infra.Repositories", "src\InsurSoft.Backend.Web.Segurados.Infra.Repositories\InsurSoft.Backend.Web.Segurados.Infra.Repositories.csproj", "{69654183-EE26-4F35-AF03-6764A90C8934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
