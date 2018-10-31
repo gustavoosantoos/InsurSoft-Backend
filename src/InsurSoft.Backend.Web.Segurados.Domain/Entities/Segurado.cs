@@ -23,7 +23,6 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
         {
             Nome = nome;
             DataNascimento = dataNascimento;
-            Ativo = true;
             Apagado = false;
         }
 
@@ -31,20 +30,12 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
 
         public NomeCompleto Nome { get; private set; }
         public DataNascimento DataNascimento { get; private set; }
-
-        public bool Ativo { get; private set; } 
+        
         public bool Apagado { get; private set; }
-
-
-        public void Inativar()
-        {
-            Ativo = false;
-        }
 
         public void MarcarComoApagado()
         {
             Apagado = true;
-            Inativar();
         }
     }
 }

@@ -24,10 +24,9 @@ namespace InsurSoft.Backend.Infra.Repository.PostgreSQL.Mappings.Segurados
                 data.Property(d => d.Data).HasColumnName("data_nascimento");
             });
 
-            builder.Property(b => b.Ativo).HasColumnName("ativo");
             builder.Property(b => b.Apagado).HasColumnName("apagado");
 
-            builder.HasQueryFilter(s => s.Ativo && !s.Apagado);
+            builder.HasQueryFilter(s => !s.Apagado);
         }
     }
 }
