@@ -9,6 +9,7 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
     {
         protected Segurado()
         {
+
         }
 
         public Segurado(int codigo, NomeCompleto nome, DataNascimento dataNascimento)
