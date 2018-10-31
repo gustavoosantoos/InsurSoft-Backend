@@ -22,6 +22,8 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
         {
             Nome = nome;
             DataNascimento = dataNascimento;
+            Ativo = true;
+            Apagado = false;
         }
 
         public int Codigo { get; private set; }

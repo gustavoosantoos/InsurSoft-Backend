@@ -32,6 +32,11 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(typeof(ApiDataResponse<List<SeguradoPreview>>), 200)]
         public async Task<IActionResult> GetAll()
         {
+            NotifyModelStateErrors();
+
+            if (!ModelState.IsValid)
+                return Response();
+
             return Response(await Mediator.Send(new ListarSeguradosQuery()));
         }
 
@@ -41,6 +46,11 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> GetById([FromRoute] ObterSeguradoDetalhadoQuery query)
         {
+            NotifyModelStateErrors();
+
+            if (!ModelState.IsValid)
+                return Response();
+
             return Response(await Mediator.Send(query));
         }
 
@@ -49,6 +59,11 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> Create([FromBody] AdicionarSeguradoCommand command)
         {
+            NotifyModelStateErrors();
+
+            if (!ModelState.IsValid)
+                return Response();
+
             return Response(await Mediator.Send(command));
         }
 
@@ -58,6 +73,11 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> Delete([FromRoute] RemoverSeguradoCommand command)
         {
+            NotifyModelStateErrors();
+
+            if (!ModelState.IsValid)
+                return Response();
+
             return Response(await Mediator.Send(command));
         }
     }
