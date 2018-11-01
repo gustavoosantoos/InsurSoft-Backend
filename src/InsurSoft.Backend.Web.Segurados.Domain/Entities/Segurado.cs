@@ -12,13 +12,6 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
 
         }
 
-        public Segurado(int codigo, NomeCompleto nome, DataNascimento dataNascimento)
-        {
-            Codigo = codigo;
-            Nome = nome;
-            DataNascimento = dataNascimento;
-        }
-
         public Segurado(NomeCompleto nome, DataNascimento dataNascimento)
         {
             Nome = nome;
@@ -32,6 +25,9 @@ namespace InsurSoft.Backend.Web.Segurados.Domain.Entities
         public DataNascimento DataNascimento { get; private set; }
         
         public bool Apagado { get; private set; }
+
+
+        public string NomeCompleto => $"{Nome.Nome} {Nome.Sobrenome}";
 
         public void MarcarComoApagado()
         {

@@ -21,6 +21,11 @@ namespace InsurSoft.Backend.Web.Seguros.Domain.Entities
         
         public bool Apagado { get; private set; }
 
-        public bool EstaVigente() => DateTime.Today > Vigencia.Inicio && DateTime.Today < Vigencia.Final;
+        public bool EstaVigente => DateTime.Today > Vigencia.Inicio && DateTime.Today < Vigencia.Final;
+
+        public void MarcarComoApagado()
+        {
+            Apagado = true;
+        }
     }
 }

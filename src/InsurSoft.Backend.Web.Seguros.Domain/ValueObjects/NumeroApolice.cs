@@ -11,7 +11,7 @@ namespace InsurSoft.Backend.Web.Seguros.Domain.ValueObjects
 
         public string Numero { get; private set; }
 
-        private NumeroApolice(string numero)
+        protected NumeroApolice(string numero)
         {
             Numero = numero;
         }

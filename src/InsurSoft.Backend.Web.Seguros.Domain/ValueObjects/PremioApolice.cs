@@ -9,7 +9,7 @@ namespace InsurSoft.Backend.Web.Seguros.Domain.ValueObjects
     {
         public decimal Valor { get; private set; }
 
-        private PremioApolice(decimal valor)
+        protected PremioApolice(decimal valor)
         {
             Valor = valor;
         }

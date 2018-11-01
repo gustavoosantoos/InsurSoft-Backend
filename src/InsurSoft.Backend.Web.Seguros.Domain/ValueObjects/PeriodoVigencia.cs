@@ -10,7 +10,7 @@ namespace InsurSoft.Backend.Web.Seguros.Domain.ValueObjects
         public DateTime Inicio { get; private set; }
         public DateTime Final { get; private set; }
 
-        private PeriodoVigencia(DateTime inicio, DateTime final)
+        protected PeriodoVigencia(DateTime inicio, DateTime final)
         {
             Inicio = inicio;
             Final = final;
