@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InsurSoft.Backend.Web.Seguros.Domain.Entities
+﻿namespace InsurSoft.Backend.Web.Seguros.Domain.Entities
 {
-    class Proposta
+    public class Proposta
     {
     }
 }

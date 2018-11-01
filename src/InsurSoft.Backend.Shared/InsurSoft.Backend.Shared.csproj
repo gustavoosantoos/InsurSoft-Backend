@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Commands\" />
+    <Folder Include="Application\Commands\" />
     <Folder Include="Domain\Enumerations\" />
     <Folder Include="Domain\Types\" />
   </ItemGroup>
