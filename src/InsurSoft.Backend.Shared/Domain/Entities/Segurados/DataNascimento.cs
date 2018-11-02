@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
+namespace InsurSoft.Backend.Shared.Domain.Entities
 {
     public class DataNascimento : ValueObject
     {

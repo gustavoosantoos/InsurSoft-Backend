@@ -10,7 +10,7 @@ namespace InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado
         public RemoverSeguradoCommandValidator()
         {
             RuleFor(command => command.Codigo)
-                .GreaterThan(0).WithMessage("O código deve ser maior do que 0.");
+                .NotEmpty().WithMessage("O código não deve ser vazio");
         }
     }
 }

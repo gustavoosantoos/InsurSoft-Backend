@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ListarApolices\" />
+    <Folder Include="ObterSumarizacaoApolices\" />
+    <Folder Include="ObterApoliceDetalhada\" />
+    <Folder Include="RemoverApolice\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.0.100" />
+    <PackageReference Include="MediatR" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Domain\InsurSoft.Backend.Web.Seguros.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

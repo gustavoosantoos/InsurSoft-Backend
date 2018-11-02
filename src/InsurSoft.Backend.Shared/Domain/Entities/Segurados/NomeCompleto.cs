@@ -1,7 +1,7 @@
 ﻿using InsurSoft.Backend.Shared.Funcional;
 using System.Collections.Generic;
 
-namespace InsurSoft.Backend.Web.Segurados.Domain.ValueObjects
+namespace InsurSoft.Backend.Shared.Domain.Entities
 {
     public class NomeCompleto : ValueObject
     {

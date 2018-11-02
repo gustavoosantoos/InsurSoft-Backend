@@ -47,6 +47,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.3 - Seguros", "0.3 - Segu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Seguros.Domain", "src\InsurSoft.Backend.Web.Seguros.Domain\InsurSoft.Backend.Web.Seguros.Domain.csproj", "{E9613270-3082-4F20-B3C0-BFAAF7332D30}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Seguros.Application", "src\InsurSoft.Backend.Web.Seguros.Application\InsurSoft.Backend.Web.Seguros.Application.csproj", "{8125C84B-5771-456D-A9A7-33D306820EF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{0E23BD1D-9695-4B27-8808-210EC590C579}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurSoft.Backend.Web.Seguros.Infra.Repositories", "src\InsurSoft.Backend.Web.Seguros.Infra.Repositories\InsurSoft.Backend.Web.Seguros.Infra.Repositories.csproj", "{8C265EB9-B0BE-4AE8-81EE-8F16A8425023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurSoft.Backend.Web.Seguros.Infra.Ioc", "src\InsurSoft.Backend.Web.Seguros.Infra.Ioc\InsurSoft.Backend.Web.Seguros.Infra.Ioc.csproj", "{977B9903-6141-4A27-96EC-908C4C16524A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +109,18 @@ Global
 		{E9613270-3082-4F20-B3C0-BFAAF7332D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9613270-3082-4F20-B3C0-BFAAF7332D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9613270-3082-4F20-B3C0-BFAAF7332D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8125C84B-5771-456D-A9A7-33D306820EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8125C84B-5771-456D-A9A7-33D306820EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8125C84B-5771-456D-A9A7-33D306820EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8125C84B-5771-456D-A9A7-33D306820EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C265EB9-B0BE-4AE8-81EE-8F16A8425023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C265EB9-B0BE-4AE8-81EE-8F16A8425023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C265EB9-B0BE-4AE8-81EE-8F16A8425023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C265EB9-B0BE-4AE8-81EE-8F16A8425023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977B9903-6141-4A27-96EC-908C4C16524A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977B9903-6141-4A27-96EC-908C4C16524A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977B9903-6141-4A27-96EC-908C4C16524A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977B9903-6141-4A27-96EC-908C4C16524A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +145,10 @@ Global
 		{69654183-EE26-4F35-AF03-6764A90C8934} = {85642F08-7903-417B-8ABE-BC8A6D0E5CCE}
 		{0FFDDA6E-7839-4270-B9FC-A3A34F7640E2} = {C4480998-C586-4702-934B-4502AA4CB053}
 		{E9613270-3082-4F20-B3C0-BFAAF7332D30} = {0FFDDA6E-7839-4270-B9FC-A3A34F7640E2}
+		{8125C84B-5771-456D-A9A7-33D306820EF4} = {0FFDDA6E-7839-4270-B9FC-A3A34F7640E2}
+		{0E23BD1D-9695-4B27-8808-210EC590C579} = {0FFDDA6E-7839-4270-B9FC-A3A34F7640E2}
+		{8C265EB9-B0BE-4AE8-81EE-8F16A8425023} = {0E23BD1D-9695-4B27-8808-210EC590C579}
+		{977B9903-6141-4A27-96EC-908C4C16524A} = {0E23BD1D-9695-4B27-8808-210EC590C579}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8572840-64EE-43C5-96C1-6D6E8C17C877}

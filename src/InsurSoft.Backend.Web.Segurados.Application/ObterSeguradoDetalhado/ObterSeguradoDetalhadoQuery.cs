@@ -8,6 +8,6 @@ namespace InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado
 {
     public class ObterSeguradoDetalhadoQuery : IRequest<SeguradoDetalhado>
     {
-        public int Codigo { get; set; }
+        public Guid Codigo { get; set; }
     }
 }

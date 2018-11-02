@@ -14,8 +14,8 @@ using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Api.Controllers.v1
 {
-    [Route("api/web/v1/[controller]")]
     [ApiController]
+    [Route("api/web/v1/[controller]")]
     public class SeguradoController : ApiController
     {
         public SeguradoController(
@@ -41,7 +41,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         }
 
         [HttpGet]
-        [Route("{Codigo:int}")]
+        [Route("{Codigo:guid}")]
         [ProducesResponseType(typeof(ApiDataResponse<SeguradoDetalhado>), 200)]
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> GetById([FromRoute] ObterSeguradoDetalhadoQuery query)
@@ -68,7 +68,7 @@ namespace InsurSoft.Backend.Web.Api.Controllers.v1
         }
 
         [HttpDelete]
-        [Route("{Codigo:int}")]
+        [Route("{Codigo:guid}")]
         [ProducesResponseType(typeof(ApiDataResponse<object>), 200)]
         [ProducesResponseType(typeof(ApiErrorResponse), 400)]
         public async Task<IActionResult> Delete([FromRoute] RemoverSeguradoCommand command)

@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InsurSoft.Backend.Shared.Functional\InsurSoft.Backend.Shared.Functional.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj" />
   </ItemGroup>
 
 </Project>

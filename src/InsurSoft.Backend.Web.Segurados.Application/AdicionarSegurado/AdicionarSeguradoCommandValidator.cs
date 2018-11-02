@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
-using InsurSoft.Backend.Web.Segurados.Domain.ValueObjects;
+using InsurSoft.Backend.Shared.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
 {

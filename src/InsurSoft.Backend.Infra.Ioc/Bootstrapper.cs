@@ -4,6 +4,7 @@ using InsurSoft.Backend.Infra.Ioc.Logger;
 using InsurSoft.Backend.Infra.Ioc.Mediator;
 using InsurSoft.Backend.Infra.Ioc.Validation;
 using InsurSoft.Backend.Web.Segurados.Infra.Ioc;
+using InsurSoft.Backend.Web.Seguros.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -43,6 +44,7 @@ namespace InsurSoft.Backend.Infra.Ioc
             Container.RegisterLoggerIoc();
             Container.RegisterMediatorIoc();
             Container.RegisterSeguradosIoc();
+            Container.RegisterSegurosIoc();
             
             aditionalRegistrations?.Invoke(Container);
 

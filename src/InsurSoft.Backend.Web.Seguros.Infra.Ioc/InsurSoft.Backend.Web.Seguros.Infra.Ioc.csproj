@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Application\InsurSoft.Backend.Web.Seguros.Application.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Domain\InsurSoft.Backend.Web.Seguros.Domain.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Infra.Repositories\InsurSoft.Backend.Web.Seguros.Infra.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

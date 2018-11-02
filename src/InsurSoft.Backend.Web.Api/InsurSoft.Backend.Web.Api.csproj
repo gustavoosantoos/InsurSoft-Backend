@@ -22,6 +22,7 @@
     <ProjectReference Include="..\InsurSoft.Backend.Infra.Ioc\InsurSoft.Backend.Infra.Ioc.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Shared.Web\InsurSoft.Backend.Shared.Web.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Application\InsurSoft.Backend.Web.Seguros.Application.csproj" />
   </ItemGroup>
 
 </Project>

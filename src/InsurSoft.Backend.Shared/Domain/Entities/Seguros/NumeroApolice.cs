@@ -1,9 +1,8 @@
 ﻿using InsurSoft.Backend.Shared.Funcional;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace InsurSoft.Backend.Web.Seguros.Domain.ValueObjects
+namespace InsurSoft.Backend.Shared.Domain.Entities.Seguros
 {
     public class NumeroApolice : ValueObject
     {

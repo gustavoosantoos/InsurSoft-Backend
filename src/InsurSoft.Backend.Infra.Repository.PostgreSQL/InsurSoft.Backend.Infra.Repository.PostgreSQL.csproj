@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InsurSoft.Backend.Infra.Shared\InsurSoft.Backend.Infra.Shared.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Domain\InsurSoft.Backend.Web.Seguros.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
