@@ -1,4 +1,5 @@
 ﻿using System;
+using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
 
 namespace InsurSoft.Backend.Shared.Domain.Entities.Seguros
 {

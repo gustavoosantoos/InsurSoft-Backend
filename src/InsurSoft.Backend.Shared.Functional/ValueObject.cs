@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace InsurSoft.Backend.Shared.Funcional
+namespace InsurSoft.Backend.Shared.Functional
 {
     [Obsolete("Use non-generic ValueObject instead: http://bit.ly/vo-new")]
     public abstract class ValueObject<T>

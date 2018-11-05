@@ -1,8 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Shared.Notifications.Application;
-using InsurSoft.Backend.Shared.Notifications.Domain;
-using InsurSoft.Backend.Shared.Web.Responses;
-using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
+﻿using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
 using InsurSoft.Backend.Web.Segurados.Application.ListarSegurados;
 using InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado;
 using InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado;
@@ -11,6 +7,10 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Application.Notifications.Application;
+using InsurSoft.Backend.Shared.Application.Notifications.Domain;
+using InsurSoft.Backend.Shared.Web.Responses;
 
 namespace InsurSoft.Backend.Web.Api.Controllers.v1
 {

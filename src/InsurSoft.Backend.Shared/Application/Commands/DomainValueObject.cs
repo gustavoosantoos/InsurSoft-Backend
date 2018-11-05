@@ -1,7 +1,7 @@
-﻿using FluentValidation.Results;
-using System;
+﻿using System;
+using FluentValidation.Results;
 
-namespace InsurSoft.Backend.Shared.Domain.Commands
+namespace InsurSoft.Backend.Shared.Application.Commands
 {
     public abstract class DomainValueObject 
     {

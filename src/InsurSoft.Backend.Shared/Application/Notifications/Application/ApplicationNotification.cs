@@ -1,7 +1,7 @@
-﻿using InsurSoft.Backend.Shared.Events;
-using System;
+﻿using System;
+using InsurSoft.Backend.Shared.Application.Events;
 
-namespace InsurSoft.Backend.Shared.Notifications.Application
+namespace InsurSoft.Backend.Shared.Application.Notifications.Application
 {
     public class ApplicationNotification : Event
     {

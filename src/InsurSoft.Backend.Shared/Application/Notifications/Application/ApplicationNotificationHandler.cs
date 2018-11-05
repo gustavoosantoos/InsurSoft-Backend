@@ -1,10 +1,10 @@
-﻿using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace InsurSoft.Backend.Shared.Notifications.Application
+namespace InsurSoft.Backend.Shared.Application.Notifications.Application
 {
     public class ApplicationNotificationHandler : INotificationHandler<ApplicationNotification>
     {

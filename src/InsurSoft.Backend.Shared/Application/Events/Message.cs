@@ -1,7 +1,7 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using MediatR;
 
-namespace InsurSoft.Backend.Shared.Events
+namespace InsurSoft.Backend.Shared.Application.Events
 {
     public abstract class Message : IRequest<bool>
     {

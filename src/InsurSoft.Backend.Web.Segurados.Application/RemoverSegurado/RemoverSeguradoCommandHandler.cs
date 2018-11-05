@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Interfaces.Domain;
+﻿using InsurSoft.Backend.Shared.Application.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using MediatR;
 using System.Threading;

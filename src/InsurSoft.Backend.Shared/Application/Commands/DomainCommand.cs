@@ -1,8 +1,8 @@
-﻿using FluentValidation.Results;
-using InsurSoft.Backend.Shared.Events;
-using System;
+﻿using System;
+using FluentValidation.Results;
+using InsurSoft.Backend.Shared.Application.Events;
 
-namespace InsurSoft.Backend.Shared.Domain.Commands
+namespace InsurSoft.Backend.Shared.Application.Commands
 {
     public abstract class DomainCommand : Message
     {

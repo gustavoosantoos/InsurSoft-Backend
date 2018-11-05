@@ -1,10 +1,10 @@
-﻿using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace InsurSoft.Backend.Shared.Notifications.Domain
+namespace InsurSoft.Backend.Shared.Application.Notifications.Domain
 {
     public class DomainNotificationHandler : INotificationHandler<DomainNotification>
     {

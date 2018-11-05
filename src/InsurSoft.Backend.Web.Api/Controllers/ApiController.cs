@@ -1,7 +1,7 @@
-﻿using InsurSoft.Backend.Shared.Funcional;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Shared.Notifications.Application;
-using InsurSoft.Backend.Shared.Notifications.Domain;
+﻿using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Application.Notifications.Application;
+using InsurSoft.Backend.Shared.Application.Notifications.Domain;
+using InsurSoft.Backend.Shared.Functional;
 using InsurSoft.Backend.Shared.Web.Extensions;
 using InsurSoft.Backend.Shared.Web.Responses;
 using MediatR;

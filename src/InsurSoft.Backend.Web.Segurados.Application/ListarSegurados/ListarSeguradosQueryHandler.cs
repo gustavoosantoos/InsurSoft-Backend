@@ -1,10 +1,10 @@
-﻿using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
+﻿using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Interfaces;
 
 namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
 {

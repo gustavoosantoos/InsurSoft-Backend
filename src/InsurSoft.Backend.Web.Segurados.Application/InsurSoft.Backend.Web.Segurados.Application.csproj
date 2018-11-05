@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Domain\InsurSoft.Backend.Web.Segurados.Domain.csproj" />
   </ItemGroup>
 
@@ -17,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.logging.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    <Reference Include="MediatR">
+      <HintPath>..\..\..\..\..\..\Users\gustavo.oliveira\.nuget\packages\mediatr\5.1.0\lib\netstandard2.0\MediatR.dll</HintPath>
     </Reference>
   </ItemGroup>
 

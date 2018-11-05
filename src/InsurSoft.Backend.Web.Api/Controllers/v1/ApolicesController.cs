@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Shared.Notifications.Application;
-using InsurSoft.Backend.Shared.Notifications.Domain;
+﻿using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Application.Notifications.Application;
+using InsurSoft.Backend.Shared.Application.Notifications.Domain;
 using InsurSoft.Backend.Shared.Web.Responses;
 using InsurSoft.Backend.Web.Seguros.Application.CriarApolice;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace InsurSoft.Backend.Web.Api.Controllers.v1
 {

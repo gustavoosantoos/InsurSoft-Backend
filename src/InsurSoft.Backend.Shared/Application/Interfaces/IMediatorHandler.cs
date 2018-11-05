@@ -1,9 +1,9 @@
-﻿using InsurSoft.Backend.Shared.Domain.Commands;
-using InsurSoft.Backend.Shared.Events;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Commands;
+using InsurSoft.Backend.Shared.Application.Events;
 
-namespace InsurSoft.Backend.Shared.Interfaces.Domain
+namespace InsurSoft.Backend.Shared.Application.Interfaces
 {
     public interface IMediatorHandler
     {

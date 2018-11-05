@@ -1,7 +1,7 @@
-﻿using InsurSoft.Backend.Shared.Events;
-using System;
+﻿using System;
+using InsurSoft.Backend.Shared.Application.Events;
 
-namespace InsurSoft.Backend.Shared.Notifications.Domain
+namespace InsurSoft.Backend.Shared.Application.Notifications.Domain
 {
     public class DomainNotification : Event
     {

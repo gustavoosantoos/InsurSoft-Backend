@@ -1,16 +1,14 @@
-﻿using InsurSoft.Backend.Shared.Domain.Commands;
-using InsurSoft.Backend.Shared.Events;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Shared.Notifications.Application;
-using InsurSoft.Backend.Shared.Notifications.Domain;
+﻿using System;
+using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Commands;
+using InsurSoft.Backend.Shared.Application.Events;
+using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Application.Notifications.Application;
+using InsurSoft.Backend.Shared.Application.Notifications.Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Shared.Domain.Handler
+namespace InsurSoft.Backend.Shared.Application.Handler
 {
     public sealed class MediatorHandler : IMediatorHandler
     {

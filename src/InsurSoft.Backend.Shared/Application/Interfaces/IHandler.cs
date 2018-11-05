@@ -1,6 +1,6 @@
-﻿using InsurSoft.Backend.Shared.Events;
+﻿using InsurSoft.Backend.Shared.Application.Events;
 
-namespace InsurSoft.Backend.Shared.Interfaces.Domain
+namespace InsurSoft.Backend.Shared.Application.Interfaces
 {
     public interface IHandler<in T> where T : Message
     {

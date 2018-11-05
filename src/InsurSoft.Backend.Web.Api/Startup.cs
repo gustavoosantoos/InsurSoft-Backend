@@ -1,6 +1,6 @@
 ﻿using FluentValidation.AspNetCore;
-using InsurSoft.Backend.Infra.Ioc;
-using InsurSoft.Backend.Infra.Ioc.Validation;
+using InsurSoft.Backend.Infrastructure.Ioc;
+using InsurSoft.Backend.Infrastructure.Ioc.Validation;
 using InsurSoft.Backend.Web.Api.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

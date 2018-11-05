@@ -19,10 +19,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InsurSoft.Backend.Infra.Ioc\InsurSoft.Backend.Infra.Ioc.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Infrastructure.Ioc\InsurSoft.Backend.Infrastructure.Ioc.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Shared.Web\InsurSoft.Backend.Shared.Web.csproj" />
+    <ProjectReference Include="..\InsurSoft.Backend.Shared\InsurSoft.Backend.Shared.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Segurados.Application\InsurSoft.Backend.Web.Segurados.Application.csproj" />
     <ProjectReference Include="..\InsurSoft.Backend.Web.Seguros.Application\InsurSoft.Backend.Web.Seguros.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\..\..\..\..\Users\gustavo.oliveira\.nuget\packages\simpleinjector\4.3.0\lib\netstandard1.3\SimpleInjector.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

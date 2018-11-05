@@ -1,7 +1,6 @@
-﻿using InsurSoft.Backend.Shared.Funcional;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using InsurSoft.Backend.Shared.Functional;
 
 namespace InsurSoft.Backend.Shared.Domain.Entities.Seguros
 {

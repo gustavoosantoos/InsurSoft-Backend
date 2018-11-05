@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Shared.Funcional.Async
+namespace InsurSoft.Backend.Shared.Functional.Async
 {
     /// <summary>
     ///     Extentions for async operations where the task appears in the right operand only

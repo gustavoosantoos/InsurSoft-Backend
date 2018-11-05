@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InsurSoft.Backend.Shared.Events
+namespace InsurSoft.Backend.Shared.Application.Events
 {
     public class EventObject : Event
     {

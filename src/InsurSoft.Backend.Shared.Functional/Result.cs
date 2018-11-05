@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace InsurSoft.Backend.Shared.Funcional
+namespace InsurSoft.Backend.Shared.Functional
 {
     internal class ResultCommonLogic<TError>
     {

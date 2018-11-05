@@ -1,8 +1,8 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
 
-namespace InsurSoft.Backend.Shared.Domain.Entities
+namespace InsurSoft.Backend.Shared.Domain.Entities.Segurados
 {
     public class Segurado
     {

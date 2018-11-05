@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace InsurSoft.Backend.Shared.Funcional
+﻿namespace InsurSoft.Backend.Shared.Functional
 {
     public interface IResult
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using InsurSoft.Backend.Shared.Domain.Entities;
-using InsurSoft.Backend.Shared.Funcional;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
+using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
+using InsurSoft.Backend.Shared.Functional;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using MediatR;
 using System.Threading;

@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities;
+﻿using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
 using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using System;
 using System.Collections.Generic;

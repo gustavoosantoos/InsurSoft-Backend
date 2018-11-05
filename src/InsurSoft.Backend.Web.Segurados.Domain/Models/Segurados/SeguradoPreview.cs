@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities;
+﻿using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
 using System;
 using System.Linq.Expressions;
 

@@ -1,7 +1,7 @@
-﻿using InsurSoft.Backend.Shared.Funcional;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using InsurSoft.Backend.Shared.Functional;
 
-namespace InsurSoft.Backend.Shared.Domain.Entities
+namespace InsurSoft.Backend.Shared.Domain.Entities.Segurados
 {
     public class NomeCompleto : ValueObject
     {

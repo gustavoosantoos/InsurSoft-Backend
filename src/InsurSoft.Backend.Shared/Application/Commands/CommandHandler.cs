@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using InsurSoft.Backend.Shared.Interfaces.Domain;
-using InsurSoft.Backend.Shared.Notifications.Domain;
+using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.Application.Notifications.Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace InsurSoft.Backend.Shared.Domain.Commands
+namespace InsurSoft.Backend.Shared.Application.Commands
 {
     public class CommandHandler
     {
