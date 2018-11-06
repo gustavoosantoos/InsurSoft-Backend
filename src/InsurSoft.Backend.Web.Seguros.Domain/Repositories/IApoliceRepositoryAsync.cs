@@ -1,5 +1,5 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.DomainModel.SegurosAggregate;
 
 namespace InsurSoft.Backend.Web.Seguros.Domain.Repositories
 {

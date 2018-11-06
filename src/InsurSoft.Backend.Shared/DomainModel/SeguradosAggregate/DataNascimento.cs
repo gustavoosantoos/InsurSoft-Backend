@@ -1,8 +1,8 @@
-﻿using InsurSoft.Backend.Shared.Functional;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using InsurSoft.Backend.Shared.Functional;
 
-namespace InsurSoft.Backend.Shared.Domain.Entities.Segurados
+namespace InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate
 {
     public class DataNascimento : ValueObject
     {

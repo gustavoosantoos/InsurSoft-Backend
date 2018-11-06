@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InsurSoft.Backend.Infrastructure.Repositories.Postgres.Context;
-using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using Microsoft.EntityFrameworkCore;

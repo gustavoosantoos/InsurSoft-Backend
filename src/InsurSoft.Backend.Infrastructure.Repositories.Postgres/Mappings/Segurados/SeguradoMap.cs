@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
+﻿using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

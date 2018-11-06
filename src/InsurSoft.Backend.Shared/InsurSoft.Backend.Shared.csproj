@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Enumerations\" />
-    <Folder Include="Domain\Types\" />
+    <Folder Include="DomainModel\Enumerations\" />
+    <Folder Include="DomainModel\Types\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,12 +1,12 @@
-﻿using InsurSoft.Backend.Shared.Application.Interfaces;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Interfaces;
 using InsurSoft.Backend.Shared.Functional;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.ObterSeguradoDetalhado
 {
     public class ObterSeguradoDetalhadoQueryHandler : IRequestHandler<ObterSeguradoDetalhadoQuery, SeguradoDetalhado>
     {

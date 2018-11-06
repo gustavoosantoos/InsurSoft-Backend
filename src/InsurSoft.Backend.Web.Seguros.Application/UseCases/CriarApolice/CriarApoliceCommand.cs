@@ -1,7 +1,7 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using MediatR;
 
-namespace InsurSoft.Backend.Web.Seguros.Application.CriarApolice
+namespace InsurSoft.Backend.Web.Seguros.Application.UseCases.CriarApolice
 {
     public class CriarApoliceCommand : IRequest
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using InsurSoft.Backend.Infrastructure.Repositories.Postgres.Context;
-using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
+using InsurSoft.Backend.Shared.DomainModel.SegurosAggregate;
 using InsurSoft.Backend.Web.Seguros.Domain.Repositories;
 
 namespace InsurSoft.Backend.Infrastructure.Repositories.Postgres.Seguros

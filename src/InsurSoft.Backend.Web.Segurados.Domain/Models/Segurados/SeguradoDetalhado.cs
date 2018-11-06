@@ -1,5 +1,5 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
-using System;
+﻿using System;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 
 namespace InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados
 {

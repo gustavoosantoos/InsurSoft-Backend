@@ -1,8 +1,8 @@
-﻿using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
-using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
+﻿using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 
 namespace InsurSoft.Backend.Web.Segurados.Domain.Interfaces
 {

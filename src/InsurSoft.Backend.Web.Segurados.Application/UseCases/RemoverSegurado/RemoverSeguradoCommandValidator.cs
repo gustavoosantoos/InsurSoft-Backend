@@ -1,9 +1,6 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.RemoverSegurado
 {
     public class RemoverSeguradoCommandValidator : AbstractValidator<RemoverSeguradoCommand>
     {

@@ -1,8 +1,8 @@
-﻿using FluentValidation;
-using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
-using System;
+﻿using System;
+using FluentValidation;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.AdicionarSegurado
 {
     public class AdicionarSeguradoCommandValidator : AbstractValidator<AdicionarSeguradoCommand>
     {

@@ -1,8 +1,8 @@
 ﻿using InsurSoft.Backend.Infrastructure.Config;
 using InsurSoft.Backend.Infrastructure.Repositories.Postgres.Mappings.Segurados;
 using InsurSoft.Backend.Infrastructure.Repositories.Postgres.Mappings.Seguros;
-using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
-using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
+using InsurSoft.Backend.Shared.DomainModel.SegurosAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;

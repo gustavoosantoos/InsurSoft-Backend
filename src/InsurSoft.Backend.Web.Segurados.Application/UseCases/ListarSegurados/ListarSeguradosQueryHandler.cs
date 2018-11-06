@@ -1,12 +1,12 @@
-﻿using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
-using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
-using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
+using InsurSoft.Backend.Web.Segurados.Domain.Models.Segurados;
+using MediatR;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.ListarSegurados
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.ListarSegurados
 {
     public class ListarSeguradosQueryHandler : IRequestHandler<ListarSeguradosQuery, IEnumerable<SeguradoPreview>>
     {

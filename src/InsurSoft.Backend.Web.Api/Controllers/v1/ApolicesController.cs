@@ -2,7 +2,7 @@
 using InsurSoft.Backend.Shared.Application.Notifications.Application;
 using InsurSoft.Backend.Shared.Application.Notifications.Domain;
 using InsurSoft.Backend.Shared.Web.Responses;
-using InsurSoft.Backend.Web.Seguros.Application.CriarApolice;
+using InsurSoft.Backend.Web.Seguros.Application.UseCases.CriarApolice;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

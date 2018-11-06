@@ -1,13 +1,13 @@
-﻿using AutoMapper;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
 using InsurSoft.Backend.Shared.Application.Interfaces;
-using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 using InsurSoft.Backend.Shared.Functional;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.AdicionarSegurado
 {
     public class AdicionarSeguradoCommandHandler : IRequestHandler<AdicionarSeguradoCommand>
     {

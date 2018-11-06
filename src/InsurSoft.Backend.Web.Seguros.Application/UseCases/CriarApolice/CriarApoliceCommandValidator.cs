@@ -1,9 +1,6 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace InsurSoft.Backend.Web.Seguros.Application.CriarApolice
+namespace InsurSoft.Backend.Web.Seguros.Application.UseCases.CriarApolice
 {
     public class CriarApoliceCommandValidator : AbstractValidator<CriarApoliceCommand>
     {

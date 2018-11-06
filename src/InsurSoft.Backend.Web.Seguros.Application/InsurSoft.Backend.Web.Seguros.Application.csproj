@@ -5,10 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ListarApolices\" />
-    <Folder Include="ObterSumarizacaoApolices\" />
-    <Folder Include="ObterApoliceDetalhada\" />
-    <Folder Include="RemoverApolice\" />
+    <Compile Remove="ListarApolices\**" />
+    <Compile Remove="ObterApoliceDetalhada\**" />
+    <Compile Remove="ObterSumarizacaoApolices\**" />
+    <Compile Remove="RemoverApolice\**" />
+    <EmbeddedResource Remove="ListarApolices\**" />
+    <EmbeddedResource Remove="ObterApoliceDetalhada\**" />
+    <EmbeddedResource Remove="ObterSumarizacaoApolices\**" />
+    <EmbeddedResource Remove="RemoverApolice\**" />
+    <None Remove="ListarApolices\**" />
+    <None Remove="ObterApoliceDetalhada\**" />
+    <None Remove="ObterSumarizacaoApolices\**" />
+    <None Remove="RemoverApolice\**" />
   </ItemGroup>
 
   <ItemGroup>

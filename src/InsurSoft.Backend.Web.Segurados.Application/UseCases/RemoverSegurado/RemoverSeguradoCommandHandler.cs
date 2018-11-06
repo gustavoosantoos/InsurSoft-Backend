@@ -1,10 +1,10 @@
-﻿using InsurSoft.Backend.Shared.Application.Interfaces;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Interfaces;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.RemoverSegurado
 {
     public class RemoverSeguradoCommandHandler : IRequestHandler<RemoverSeguradoCommand>
     {

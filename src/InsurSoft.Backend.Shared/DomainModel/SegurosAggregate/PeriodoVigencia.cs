@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using InsurSoft.Backend.Shared.Functional;
 
-namespace InsurSoft.Backend.Shared.Domain.Entities.Seguros
+namespace InsurSoft.Backend.Shared.DomainModel.SegurosAggregate
 {
     public class PeriodoVigencia : ValueObject
     {

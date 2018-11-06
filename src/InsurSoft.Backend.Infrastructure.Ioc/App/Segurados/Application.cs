@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado;
-using InsurSoft.Backend.Web.Segurados.Application.ObterSeguradoDetalhado;
-using InsurSoft.Backend.Web.Segurados.Application.RemoverSegurado;
+using InsurSoft.Backend.Web.Segurados.Application.UseCases.AdicionarSegurado;
+using InsurSoft.Backend.Web.Segurados.Application.UseCases.ObterSeguradoDetalhado;
+using InsurSoft.Backend.Web.Segurados.Application.UseCases.RemoverSegurado;
 using MediatR;
 using SimpleInjector;
 

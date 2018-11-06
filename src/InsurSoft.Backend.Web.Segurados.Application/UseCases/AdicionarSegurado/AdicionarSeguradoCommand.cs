@@ -1,9 +1,7 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using MediatR;
 
-namespace InsurSoft.Backend.Web.Segurados.Application.AdicionarSegurado
+namespace InsurSoft.Backend.Web.Segurados.Application.UseCases.AdicionarSegurado
 {
     public class AdicionarSeguradoCommand : IRequest
     {

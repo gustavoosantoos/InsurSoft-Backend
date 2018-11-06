@@ -1,7 +1,7 @@
 ﻿using System;
-using InsurSoft.Backend.Shared.Domain.Entities.Segurados;
+using InsurSoft.Backend.Shared.DomainModel.SeguradosAggregate;
 
-namespace InsurSoft.Backend.Shared.Domain.Entities.Seguros
+namespace InsurSoft.Backend.Shared.DomainModel.SegurosAggregate
 {
     public class Apolice
     {

@@ -1,13 +1,13 @@
-﻿using InsurSoft.Backend.Shared.Application.Interfaces;
-using InsurSoft.Backend.Shared.Domain.Entities.Seguros;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using InsurSoft.Backend.Shared.Application.Interfaces;
+using InsurSoft.Backend.Shared.DomainModel.SegurosAggregate;
 using InsurSoft.Backend.Shared.Functional;
 using InsurSoft.Backend.Web.Segurados.Domain.Interfaces;
 using InsurSoft.Backend.Web.Seguros.Domain.Repositories;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Web.Seguros.Application.CriarApolice
+namespace InsurSoft.Backend.Web.Seguros.Application.UseCases.CriarApolice
 {
     public class CriarApoliceCommandHandler : IRequestHandler<CriarApoliceCommand>
     {
