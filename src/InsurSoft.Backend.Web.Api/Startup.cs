@@ -2,6 +2,7 @@
 using InsurSoft.Backend.Infrastructure.Ioc;
 using InsurSoft.Backend.Infrastructure.Ioc.Validation;
 using InsurSoft.Backend.Web.Api.AutoMapper;
+using InsurSoft.Backend.Web.Api.Configurations.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,20 +26,16 @@ namespace InsurSoft.Backend.Web.Api
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv => fv.ValidatorFactory = new ApplicationValidatorFactory(Bootstrapper.Container));
-
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "InsurSoftWeb", Version = "v1" });
-            });
+            services.AddInsursoftSwagger();
 
             services.Init();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.InitContainer((container) =>
+            app.InitContainer(container =>
             {
                 container.RegisterAutoMapperIoc();
             });
@@ -52,14 +49,8 @@ namespace InsurSoft.Backend.Web.Api
                 app.UseHsts();
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "InsurSoft Web");
-            });
-
+            app.UseInsursoftSwagger();
             app.Verify();
-
             app.UseHttpsRedirection();
             app.UseMvc();
         }
